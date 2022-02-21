@@ -3,6 +3,7 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import styled from 'styled-components/macro';
 import Message from './Message';
 import {EStatus} from '../typings';
+import './styles.css';
 
 interface IProps {
     isVisible: boolean,

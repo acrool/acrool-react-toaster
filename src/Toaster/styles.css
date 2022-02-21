@@ -1,0 +1,31 @@
+.bear-react-toaster__message{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background: #bdbdbd;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.bear-react-toaster__message-status-success{
+    background: #55a532;
+    color: #fff;
+}
+.bear-react-toaster__message-status-warning{
+    background: #ccb444;
+    color: #fff;
+}
+
+.bear-react-toaster__message-status-error{
+    background: #ff0000;
+    color: #fff;
+}
+.bear-react-toaster__message-status-info{
+    background: #795da3;
+    color: #fff;
+}

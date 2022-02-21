@@ -6,14 +6,22 @@ export enum EStatus {
     error = 'error',
 }
 
-
-declare global {
-    /*~ Here, declare things that go in the global namespace, or augment
-     *~ existing declarations in the global namespace
-     */
-    interface Window {
-        toaster: any,
-    }
+export interface IItem {
+    key: string,
+    status?: EStatus,
+    message: string,
 }
 
-export {}
+export type TShow = (newItem: Omit<IItem, 'key'>) => void;
+export type TStatusShow = (newItem: Omit<IItem, 'key'|'status'>) => void;
+interface TShowStatus {
+    success: TStatusShow,
+    warning: TStatusShow,
+    info: TStatusShow,
+    error: TStatusShow,
+}
+
+export type TShowMulti = TShow & TShowStatus;
+
+export type THidden = (key: string) => void;
+

@@ -1,22 +1,14 @@
 import React from 'react';
-import {EStatus} from '../typings';
+import {IItem, THidden, TShowMulti} from '../typings';
+// import {toaster} from './ToasterProvider';
 
 
 /** -----------------------------------------
  |               Interface                   |
  /** ---------------------------------------*/
-export interface IState {
-    key: string,
-    status?: EStatus,
-    message: string,
-}
-
-type TShow = (newItem: Omit<IState, 'key'>) => void;
-type THidden = (key: string) => void;
-
 export interface IContext {
-    items: IState[],
-    show: TShow,
+    items: IItem[],
+    toaster: TShowMulti,
     hidden: THidden
 }
 
@@ -28,7 +20,8 @@ export interface IContext {
 
 const ToasterContext = React.createContext<IContext>({
     items: [],
-    show: () => {},
+    // @ts-ignore
+    toaster: null,
     hidden: () => {}
 });
 

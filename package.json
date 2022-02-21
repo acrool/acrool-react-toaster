@@ -78,7 +78,8 @@
     "cz-customizable": "6.3.0",
     "standard-version": "9.3.0",
     "react-transition-group": "^4.4.2",
-    "bear-jsutils": "1.0.1"
+    "bear-jsutils": "1.0.1",
+    "classnames": "2.3.1"
   },
   "eslintConfig": {
     "extends": [

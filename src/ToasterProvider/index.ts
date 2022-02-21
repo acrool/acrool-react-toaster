@@ -1,2 +1,1 @@
-export {default} from './ToasterProvider';
-// export {default as Message} from './Message';
+export {default, toast} from './ToasterProvider';
