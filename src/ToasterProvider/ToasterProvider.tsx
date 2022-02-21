@@ -1,11 +1,11 @@
-import React, {Fragment, useCallback, useContext, useEffect, useState} from 'react';
+import React, {ReactNode, useCallback, useEffect, useState} from 'react';
 import {uuid} from 'bear-jsutils/key';
 import ToasterContainer from './ToasterContainer';
 import {IState, ToasterContextProvider} from './context';
 
 
 interface IProps {
-    children: React.ReactNode,
+    children?: ReactNode,
 }
 
 /**
