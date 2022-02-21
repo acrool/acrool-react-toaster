@@ -1,4 +1,5 @@
-export {default as LocaleProvider} from './LocaleProvider';
-export {default as LocaleControlProvider} from './LocaleProvider/LocaleControlProvider';
+export {default} from './Toaster';
+export {default as ToasterProvider} from './ToasterProvider';
 export * from './hook';
 export * from './typings';
+
