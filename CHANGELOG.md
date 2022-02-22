@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/imagine10255/bear-react-toaster/compare/v1.0.1...v1.0.2) (2022-02-22)
+
+
+### Features
+
+* rename ToasterProvider -> ToasterPortal, css add init position ([3178982](https://github.com/imagine10255/bear-react-toaster/commit/317898226ee91a2ee62d1ed472c4efecceae2f3a))
+
 ### [1.0.1](https://github.com/imagine10255/bear-react-toaster/compare/v0.0.4...v1.0.1) (2022-02-22)
 
 
