@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/imagine10255/bear-react-toaster/compare/v0.0.4...v1.0.1) (2022-02-22)
+
+
+### Features
+
+* 更改 為外部控制, 不使用 Provider ([ac8095f](https://github.com/imagine10255/bear-react-toaster/commit/ac8095f6c896a3ea021287471c85890996d7783b))
+
 ### 0.0.4 (2022-02-22)
 
 
