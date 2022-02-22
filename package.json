@@ -1,6 +1,6 @@
 {
   "name": "bear-react-toaster",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Toaster library based for Reactjs",
   "keywords": [
     "react",
@@ -52,9 +52,6 @@
   },
   "peerDependencies": {
     "react": "17.0.2"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",

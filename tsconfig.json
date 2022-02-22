@@ -22,8 +22,7 @@
     "noEmit": true,
     "downlevelIteration": true,
     "jsx": "react",
-    "baseUrl": "src",
-    "preserveSymlinks": true
+    "baseUrl": "src"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]

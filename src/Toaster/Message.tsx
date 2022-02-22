@@ -1,6 +1,5 @@
 import React, {ReactNode} from 'react';
 import CSS from 'csstype';
-import cx from 'classnames';
 import {elClassName} from '../config';
 import Icon from './Icon';
 
@@ -49,7 +48,7 @@ const Message = ({
 
     return (
         <div
-            className={cx(elClassName.message, statusTheme?.elClass)}
+            className={[elClassName.message, statusTheme?.elClass].join('').trim()}
             style={style}
             role="alert"
             onClick={onClose}
