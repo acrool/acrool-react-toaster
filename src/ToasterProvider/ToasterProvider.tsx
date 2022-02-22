@@ -10,6 +10,7 @@ interface IState {
     items: IItem[],
 }
 interface IProps {
+    timeout?: number,
     children?: ReactNode,
 }
 
@@ -24,7 +25,8 @@ export let toast: TShowMulti;
  * @param children
  */
 class ToasterProvider extends React.Component<IProps, IState> {
-    static defaultProps = {};
+    static defaultProps = {
+    };
     state = {
         items: [],
     };
@@ -65,10 +67,10 @@ class ToasterProvider extends React.Component<IProps, IState> {
 
 
     render() {
-        const {children} = this.props;
+        const {children, timeout} = this.props;
         const {items} = this.state;
 
-        return <ToasterContextProvider value={{items, toaster: toast, hidden: this.hidden}}>
+        return <ToasterContextProvider value={{timeout, items, toaster: toast, hidden: this.hidden}}>
             {children}
 
             {/* Global Control Container */}

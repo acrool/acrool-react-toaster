@@ -48,7 +48,7 @@ const Message = ({
 
     return (
         <div
-            className={[elClassName.message, statusTheme?.elClass].join('').trim()}
+            className={[elClassName.message, statusTheme?.elClass].join(' ').trim()}
             style={style}
             role="alert"
             onClick={onClose}

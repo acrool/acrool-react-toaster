@@ -10,6 +10,8 @@ import {Button} from 'bear-components/atoms';
 const BaseUsed = () => {
     const {toaster} = useToaster();
 
+    console.log('xxxx render');
+
     return (
         <div>
 
@@ -22,7 +24,7 @@ const BaseUsed = () => {
             <Button  color="success" onClick={() => toaster({status: EStatus.success, message: 'useToaster success + message'})}>
                 useToaster status + message
             </Button>
- 
+
 
             <Button  color="success" onClick={() => toaster.success({message: 'useToaster --- toaster.success'})}>
                 useToaster --- toaster.success

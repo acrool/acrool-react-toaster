@@ -16,7 +16,7 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <HashRouter>
                     <SidebarProvider>
-                        <ToasterProvider>
+                        <ToasterProvider timeout={300000}>
                             <HomeRoot/>
                         </ToasterProvider>
                     </SidebarProvider>

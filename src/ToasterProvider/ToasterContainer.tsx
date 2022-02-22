@@ -3,9 +3,10 @@ import Toaster from '../Toaster';
 import {useToaster} from '../hook';
 import ModalWithPortal from './ModalWithPortal';
 import {elClassName} from '../config';
+import '../styles.css';
 
 const ToasterContainer = () => {
-    const {items, hidden} = useToaster();
+    const {timeout, items, hidden} = useToaster();
 
     return (
         <ModalWithPortal name="toaster">
@@ -17,6 +18,7 @@ const ToasterContainer = () => {
                         onEntered={() => hidden(item.key)}
                         message={item?.message}
                         status={item?.status}
+                        timeout={timeout}
                     />
                 })}
             </div>

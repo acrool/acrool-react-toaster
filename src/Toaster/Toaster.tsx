@@ -9,15 +9,16 @@ interface IProps {
     onEntered: () => void,
     status?: EStatus,
     message: string,
+    timeout?: number,
 }
 
-const timeout = 3000;
 
 const Toaster = ({
     isVisible = false,
     onEntered = () => {},
     status,
     message,
+    timeout,
 }: IProps) => {
     const [visible, setVisible] = useState(false);
     // const [showMessage, setShowMessage] = useState(false);
@@ -28,7 +29,7 @@ const Toaster = ({
     return (
         <CSSTransition
             in={visible}
-            timeout={timeout}
+            timeout={timeout ? timeout : 3000}
 
             classNames="alert"
             // unmountOnExit

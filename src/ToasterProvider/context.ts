@@ -7,6 +7,7 @@ import {IItem, THidden, TShowMulti} from '../typings';
  |               Interface                   |
  /** ---------------------------------------*/
 export interface IContext {
+    timeout?: number,
     items: IItem[],
     toaster: TShowMulti,
     hidden: THidden
