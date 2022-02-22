@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Message from './Message';
 import {EStatus} from '../typings';
@@ -26,6 +26,11 @@ const Toaster = ({
         setVisible(true);
     }, []);
 
+    const handleHidden = useCallback(() => {
+        setVisible(false);
+    }, []);
+
+
     return (
         <CSSTransition
             in={visible}
@@ -34,11 +39,11 @@ const Toaster = ({
             classNames="alert"
             // unmountOnExit
             // onEnter={() => setShowButton(false)}
-            onExited={() => onEntered()}
+            onExited={onEntered}
             // onEntered={onEntered}
-            onEntered={() => setVisible(false)}
+            onEntered={handleHidden}
         >
-            <div className={elClassName.messageAnimation}>
+            <div className={elClassName.messageAnimation} onClick={handleHidden}>
                 <Message status={status}>{message}</Message>
             </div>
         </CSSTransition>

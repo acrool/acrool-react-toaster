@@ -1,9 +1,11 @@
 import React, {ReactNode} from 'react';
 import {uuid} from 'bear-jsutils/key';
 import {removeByIndex} from 'bear-jsutils/array';
-import ToasterContainer from './ToasterContainer';
-import {ToasterContextProvider} from './context';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../typings';
+import ModalWithPortal from './ModalWithPortal';
+import {elClassName} from '../config';
+import Toaster from '../Toaster';
+import '../styles.css';
 
 
 interface IState {
@@ -27,7 +29,7 @@ export let toast: TShowMulti;
 class ToasterProvider extends React.Component<IProps, IState> {
     static defaultProps = {
     };
-    state = {
+    state: IState = {
         items: [],
     };
 
@@ -35,15 +37,15 @@ class ToasterProvider extends React.Component<IProps, IState> {
         super(props);
 
         // set global
-        toast = this.show as TShowMulti;
-        toast.success = (item) => this.show({...item, status: EStatus.success});
-        toast.warning = (item) => this.show({...item, status: EStatus.warning});
-        toast.error = (item) => this.show({...item, status: EStatus.error});
-        toast.info = (item) => this.show({...item, status: EStatus.info});
+        toast = this._show as TShowMulti;
+        toast.success = (item) => this._show({...item, status: EStatus.success});
+        toast.warning = (item) => this._show({...item, status: EStatus.warning});
+        toast.error = (item) => this._show({...item, status: EStatus.error});
+        toast.info = (item) => this._show({...item, status: EStatus.info});
     }
 
 
-    show: TShow = (newItem) => {
+    _show: TShow = (newItem) => {
         const key = uuid();
         this.setState((prev) => {
             const items = prev.items.concat({
@@ -52,30 +54,42 @@ class ToasterProvider extends React.Component<IProps, IState> {
             });
             return {
                 items
-            }
+            };
         });
     };
 
-    hidden: THidden = (key) => {
+    _hidden: THidden = (key) => {
         this.setState((prev) => {
             const index = prev.items.findIndex(row => row.key === key);
             return {
                 items: removeByIndex(prev.items, index),
-            }
+            };
         });
     };
 
+    renderItems = () => {
+        const {items} = this.state;
+        const {timeout} = this.props;
+        return items.map(item => {
+            return <Toaster
+                key={item.key}
+                isVisible={true}
+                onEntered={() => this._hidden(item.key)}
+                message={item?.message}
+                status={item?.status}
+                timeout={timeout}
+            />;
+        });
+    };
 
     render() {
-        const {children, timeout} = this.props;
-        const {items} = this.state;
+        return <ModalWithPortal name="toaster">
 
-        return <ToasterContextProvider value={{timeout, items, toaster: toast, hidden: this.hidden}}>
-            {children}
+            <div className={elClassName.modal}>
+                {this.renderItems()}
+            </div>
 
-            {/* Global Control Container */}
-            <ToasterContainer/>
-        </ToasterContextProvider>
+        </ModalWithPortal>;
     }
 }
 

@@ -63,6 +63,7 @@
 
 .bear-react-toaster__message-animation{
     overflow: hidden;
+    cursor: pointer;
     transition: opacity .4s, transform .4s, height .4s, margin-bottom .4s;
 }
 

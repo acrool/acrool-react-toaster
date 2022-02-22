@@ -27,11 +27,11 @@ class ModalWithPortal extends React.Component<IProps, {}> {
 
     render() {
         return ReactDOM.createPortal(
-                this.props.children,
-                this.el,
+            this.props.children,
+            this.el,
         ) as any;
     }
 
 }
 
-export default ModalWithPortal
+export default ModalWithPortal;

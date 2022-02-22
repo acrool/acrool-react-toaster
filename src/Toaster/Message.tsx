@@ -44,14 +44,13 @@ const Message = ({
     onClose,
 }: IProps) => {
 
-   const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
+    const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
 
     return (
         <div
             className={[elClassName.message, statusTheme?.elClass].join(' ').trim()}
             style={style}
             role="alert"
-            onClick={onClose}
         >
             {statusTheme && (
                 <div className={elClassName.messageIcon}>
