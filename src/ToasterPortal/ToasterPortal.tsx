@@ -13,7 +13,6 @@ interface IState {
 }
 interface IProps {
     timeout?: number,
-    children?: ReactNode,
 }
 
 /**
@@ -23,10 +22,9 @@ export let toast: TShowMulti;
 
 
 /**
- * Provider
- * @param children
+ * ToasterPortal
  */
-class ToasterProvider extends React.Component<IProps, IState> {
+class ToasterPortal extends React.Component<IProps, IState> {
     static defaultProps = {
     };
     state: IState = {
@@ -94,4 +92,4 @@ class ToasterProvider extends React.Component<IProps, IState> {
 }
 
 
-export default ToasterProvider;
+export default ToasterPortal;

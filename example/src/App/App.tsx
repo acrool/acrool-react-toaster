@@ -7,7 +7,7 @@ import {HashRouter, Route, Switch} from 'react-router-dom';
 import React from 'react';
 import HomeRoot from '../views/HomeRoot';
 import {SidebarProvider} from 'provider/SidebarProvider';
-import {ToasterProvider} from 'bear-react-toaster';
+import {ToasterPortal} from 'bear-react-toaster';
 
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
                     <SidebarProvider>
                         <HomeRoot/>
 
-                        <ToasterProvider timeout={3000}/>
+                        <ToasterPortal timeout={3000}/>
                     </SidebarProvider>
                 </HashRouter>
                 <GlobalStyle/>

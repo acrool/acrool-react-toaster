@@ -70,6 +70,7 @@
 .bear-react-toaster__message-animation,
 .bear-react-toaster__message-animation.alert-enter{
     opacity: 0;
+    transform: translateY(0);
     margin-bottom: 0;
     height: 42px;
 }
