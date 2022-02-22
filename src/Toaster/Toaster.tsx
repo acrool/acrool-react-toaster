@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import CSSTransition from 'react-transition-group/CSSTransition';
-import styled from 'styled-components/macro';
 import Message from './Message';
 import {EStatus} from '../typings';
-import './styles.css';
+import {elClassName} from '../config';
 
 interface IProps {
     isVisible: boolean,
@@ -12,10 +11,12 @@ interface IProps {
     message: string,
 }
 
+const timeout = 3000;
+
 const Toaster = ({
     isVisible = false,
     onEntered = () => {},
-     status,
+    status,
     message,
 }: IProps) => {
     const [visible, setVisible] = useState(false);
@@ -27,7 +28,7 @@ const Toaster = ({
     return (
         <CSSTransition
             in={visible}
-            timeout={3000}
+            timeout={timeout}
 
             classNames="alert"
             // unmountOnExit
@@ -36,49 +37,12 @@ const Toaster = ({
             // onEntered={onEntered}
             onEntered={() => setVisible(false)}
         >
-            <CustomAnimations className="custom-animations">
+            <div className={elClassName.messageAnimation}>
                 <Message status={status}>{message}</Message>
-            </CustomAnimations>
+            </div>
         </CSSTransition>
     );
 };
 
 export default Toaster;
 
-
-const CustomAnimations = styled.div`
-    //position: fixed;
-    //top: 20px;
-    //right: 0;
-    //left: 0;
-    //margin: 0 auto;
-    //text-align: center;
-    //z-index: 50;
-    overflow: hidden;
-    transition: opacity .4s, transform .4s, height .4s, margin-bottom .4s;
-
-    opacity: 0;
-    margin-bottom: 0;
-    height: 42px;
-
-    &.alert-enter{
-        opacity: 0;
-    }
-
-    &.alert-enter-active{
-        opacity: 1;
-        transform: translateY(10px);
-        margin-bottom: 8px;
-    }
-    //&.alert-enter-done{
-    //    opacity: 0;
-    //    color: red;
-    //}
-    &.alert-exit-active{
-        transform: translateY(0);
-        height: 0;
-        opacity: 0;
-        margin-bottom: 0;
-    }
-
-`;

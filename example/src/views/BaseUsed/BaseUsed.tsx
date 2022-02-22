@@ -22,7 +22,7 @@ const BaseUsed = () => {
             <Button  color="success" onClick={() => toaster({status: EStatus.success, message: 'useToaster success + message'})}>
                 useToaster status + message
             </Button>
-
+ 
 
             <Button  color="success" onClick={() => toaster.success({message: 'useToaster --- toaster.success'})}>
                 useToaster --- toaster.success

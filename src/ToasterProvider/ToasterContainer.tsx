@@ -1,19 +1,15 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-
-
-// Configs
-
 import Toaster from '../Toaster';
 import {useToaster} from '../hook';
 import ModalWithPortal from './ModalWithPortal';
+import {elClassName} from '../config';
 
 const ToasterContainer = () => {
     const {items, hidden} = useToaster();
 
     return (
         <ModalWithPortal name="toaster">
-            <CustomModal className="custom-modal">
+            <div className={elClassName.modal}>
                 {items.map(item => {
                     return <Toaster
                         key={item.key}
@@ -23,26 +19,9 @@ const ToasterContainer = () => {
                         status={item?.status}
                     />
                 })}
-            </CustomModal>
+            </div>
         </ModalWithPortal>
     );
 };
 
 export default ToasterContainer;
-
-
-
-const CustomModal = styled.div`
-    position: fixed;
-    top: 20px;
-    margin: 0 auto;
-    text-align: center;
-    z-index: 50;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    flex-direction: column;
-`;
-

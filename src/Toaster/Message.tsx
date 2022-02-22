@@ -1,23 +1,29 @@
 import React, {ReactNode} from 'react';
 import CSS from 'csstype';
-import styled from 'styled-components/macro';
 import cx from 'classnames';
-import elClassName from '../el-class-name';
+import {elClassName} from '../config';
+import Icon from './Icon';
 
 import {EStatus} from '../typings';
 
-const IconMap = {
-    [EStatus.success]: 'checked',
-    [EStatus.info]: 'info',
-    [EStatus.warning]: 'warning',
-    [EStatus.error]: 'times-alt',
-};
 
-const classMap = {
-    [EStatus.success]: elClassName.messageStatusSuccess,
-    [EStatus.warning]: elClassName.messageStatusWarning,
-    [EStatus.error]: elClassName.messageStatusError,
-    [EStatus.info]: elClassName.messageStatusInfo,
+const themeMap = {
+    [EStatus.success]: {
+        icon: Icon.success,
+        elClass: elClassName.messageStatusSuccess,
+    },
+    [EStatus.warning]: {
+        icon: Icon.warning,
+        elClass: elClassName.messageStatusWarning,
+    },
+    [EStatus.error]: {
+        icon: Icon.error,
+        elClass: elClassName.messageStatusError,
+    },
+    [EStatus.info]: {
+        icon: Icon.info,
+        elClass: elClassName.messageStatusInfo,
+    }
 };
 
 interface IProps {
@@ -39,28 +45,30 @@ const Message = ({
     onClose,
 }: IProps) => {
 
-   const statusClassName = typeof status !== 'undefined'? classMap[status]: '';
+   const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
 
     return (
         <div
-            className={cx(elClassName.message, statusClassName)}
+            className={cx(elClassName.message, statusTheme?.elClass)}
             style={style}
             role="alert"
             onClick={onClose}
         >
-            {/*{status && (*/}
-            {/*     <StatusIcon code={IconMap[status]} size={20} color="#fff"/>*/}
-            {/*)}*/}
-            {children && <Content className="bear-carousel__content">{children}</Content>}
+            {statusTheme && (
+                <div className={elClassName.messageIcon}>
+                    <statusTheme.icon/>
+                </div>
+            )}
+            {children && <div className={elClassName.messageContent}>{children}</div>}
         </div>
     );
 };
 
 export default Message;
-
-const Content = styled.div`
-
-`;
+//
+// const Content = styled.div`
+//
+// `;
 
 
 // const StatusIcon = styled.div`

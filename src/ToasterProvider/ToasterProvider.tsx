@@ -1,9 +1,9 @@
-import React, {ReactNode, useCallback, useEffect, useState} from 'react';
+import React, {ReactNode} from 'react';
 import {uuid} from 'bear-jsutils/key';
 import {removeByIndex} from 'bear-jsutils/array';
 import ToasterContainer from './ToasterContainer';
 import {ToasterContextProvider} from './context';
-import {EStatus, IItem, TShow, TShowMulti} from '../typings';
+import {EStatus, IItem, THidden, TShow, TShowMulti} from '../typings';
 
 
 interface IState {
@@ -13,57 +13,10 @@ interface IProps {
     children?: ReactNode,
 }
 
-export let toast: TShowMulti;
-
 /**
- * Provider
- * @param children
+ * Global var
  */
-// const ToasterProvider = ({
-//     children
-// }: IProps) => {
-//     const [items, setItems] = useState<IState[]>([]);
-//
-//
-//     useEffect(() => {
-//         toast = show as TShowMulti;
-//         toast.success = (item) => show({...item, status: EStatus.success});
-//         toast.warning = (item) => show({...item, status: EStatus.warning});
-//         toast.error = (item) => show({...item, status: EStatus.error});
-//         toast.info = (item) => show({...item, status: EStatus.info});
-//     }, []);
-//
-//
-//     const hidden = useCallback((key: string) => {
-//         setItems(prev => {
-//             const index = prev.findIndex(row => row.key === key);
-//             return [...prev.slice(0, index), ...prev.slice(index + 1)];
-//         });
-//     }, []);
-//
-//
-//     const show = useCallback((newItem: Omit<IState, 'key'>) => {
-//         const key = uuid();
-//         setItems(prev => {
-//             return prev.concat({
-//                 ...newItem,
-//                 key,
-//             });
-//         });
-//     }, []);
-//
-//
-//
-//
-//     return (
-//         <ToasterContextProvider value={{items, toaster: toast, hidden}}>
-//             {children}
-//
-//             {/* Global Control Container */}
-//             <ToasterContainer/>
-//         </ToasterContextProvider>
-//     );
-// };
+export let toast: TShowMulti;
 
 
 /**
@@ -79,6 +32,7 @@ class ToasterProvider extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
 
+        // set global
         toast = this.show as TShowMulti;
         toast.success = (item) => this.show({...item, status: EStatus.success});
         toast.warning = (item) => this.show({...item, status: EStatus.warning});
@@ -87,7 +41,7 @@ class ToasterProvider extends React.Component<IProps, IState> {
     }
 
 
-    show = (newItem: Omit<IItem, 'key'>) => {
+    show: TShow = (newItem) => {
         const key = uuid();
         this.setState((prev) => {
             const items = prev.items.concat({
@@ -100,7 +54,7 @@ class ToasterProvider extends React.Component<IProps, IState> {
         });
     };
 
-    hidden = (key: string) => {
+    hidden: THidden = (key) => {
         this.setState((prev) => {
             const index = prev.items.findIndex(row => row.key === key);
             return {
