@@ -18,7 +18,7 @@ const App = () => {
                     <SidebarProvider>
                         <HomeRoot/>
 
-                        <ToasterPortal timeout={3000}/>
+                        <ToasterPortal timeout={3000000}/>
                     </SidebarProvider>
                 </HashRouter>
                 <GlobalStyle/>

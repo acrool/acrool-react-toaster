@@ -1,7 +1,10 @@
-.bear-react-toaster__root{
+.bear-react-toaster__root *,
+.bear-react-toaster__root *::before,
+.bear-react-toaster__root *::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    line-height: normal;
 }
-
-
 
 .bear-react-toaster__modal{
     position: fixed;

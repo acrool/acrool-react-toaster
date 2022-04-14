@@ -1,6 +1,4 @@
-import {baseImage as images} from 'config/images';
 import React from 'react';
-import {ERowAlign, Flex} from 'bear-styled-grid';
 import {EStatus, toast} from 'bear-react-toaster';
 import {Button} from 'bear-components/atoms';
 

@@ -14,9 +14,23 @@ yarn add bear-react-toaster
 ```
 
 ## Usage
-then in your src/app.tsx
+add in your index.html
 
 ```tsx
+<div id="modal-root"></div>
+```
+
+
+add in your index.tsx
+```tst
+import "bear-react-toaster/dist/index.css";
+
+```
+
+add in your App.tsx
+
+```tsx
+import {ToasterPortal} from "bear-react-toaster";
 
 const App = () => {
     return (
@@ -83,7 +97,7 @@ const BaseUsed = () => {
 
 There is also a codesandbox template that you can fork and play with it:
 
-[![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/bear-react-toaster-ejk43)
+[![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/bear-react-toaster-rkexls)
 
 [Component and setup docs](./docs/component.md)
 
