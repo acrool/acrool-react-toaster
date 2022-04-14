@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/imagine10255/bear-react-toaster/compare/v1.0.4...v1.0.5) (2022-04-14)
+
+
+### Bug Fixes
+
+* 修正 css reset style name ([f5f9a34](https://github.com/imagine10255/bear-react-toaster/commit/f5f9a34f5274165fde0ff23ebdaf0977653ed1bf))
+
 ### [1.0.4](https://github.com/imagine10255/bear-react-toaster/compare/v1.0.3...v1.0.4) (2022-04-14)
 
 
