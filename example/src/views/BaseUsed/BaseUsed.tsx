@@ -9,8 +9,6 @@ import {Button} from 'bear-components/atoms';
 
 const BaseUsed = () => {
 
-    console.log('xxxx render');
-
     return (
         <div>
             <Button  color="success" onClick={() => toast({message: 'useToaster message'})}>
