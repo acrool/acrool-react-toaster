@@ -1,6 +1,6 @@
-.bear-react-toaster__root *,
-.bear-react-toaster__root *::before,
-.bear-react-toaster__root *::after{
+.bear-react-toaster__modal *,
+.bear-react-toaster__modal *::before,
+.bear-react-toaster__modal *::after{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     line-height: normal;
