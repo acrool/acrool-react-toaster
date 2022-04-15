@@ -1,6 +1,6 @@
 # bear-react-toaster
 
-> Internationalize Elegant intl library based for Reactjs
+> Toaster library based for Reactjs
 
 
 [![NPM](https://img.shields.io/npm/v/bear-react-toaster.svg)](https://www.npmjs.com/package/bear-react-toaster)
