@@ -97,7 +97,7 @@ const BaseUsed = () => {
 
 There is also a codesandbox template that you can fork and play with it:
 
-[![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/bear-react-toaster-rkexls)
+[![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rkexls)
 
 [Component and setup docs](./docs/component.md)
 
