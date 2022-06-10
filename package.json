@@ -47,11 +47,9 @@
     "release:patch": "standard-version -r patch",
     "release:alpha": "standard-version --prerelease alpha"
   },
-  "resolutions": {
-    "react-error-overlay": "6.0.9"
-  },
   "peerDependencies": {
-    "react": "17.0.2"
+      "react": "^18.1.0",
+      "eslint-config-react-app": "^7.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -60,8 +58,8 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/jest": "^25.1.4",
     "@types/node": "15.0.3",
-    "@types/react": "17.0.5",
-    "@types/react-dom": "^16.9.7",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
     "babel-eslint": "^10.0.3",
     "bear-jsutils": "1.0.1",
     "cross-env": "^7.0.2",
@@ -69,12 +67,20 @@
     "cz-customizable": "6.3.0",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-scripts": "4.0.3",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-scripts": "5.0.1",
+    "eslint-config-react-app":  "7.0.1",
     "standard-version": "9.3.0",
     "typescript": "4.1.5",
-    "react-transition-group": "^4.4.2"
+    "react-transition-group": "^4.4.2",
+    "@typescript-eslint/eslint-plugin": "5.8.1",
+    "@typescript-eslint/parser": "5.8.1",
+    "eslint": "8.6.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-unicorn": "40.0.0"
   },
   "eslintConfig": {
     "extends": [
