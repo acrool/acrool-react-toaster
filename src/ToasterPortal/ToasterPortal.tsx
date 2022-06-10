@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {uuid} from 'bear-jsutils/key';
 import {removeByIndex} from 'bear-jsutils/array';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../typings';

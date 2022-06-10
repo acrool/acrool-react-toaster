@@ -1,13 +1,13 @@
+import React from 'react';
 import {createGlobalStyle, ThemeProvider} from 'styled-components/macro';
-import {Container, GridThemeProvider} from 'bear-styled-grid';
+import {HashRouter} from 'react-router-dom';
+import {GridThemeProvider} from 'bear-react-grid';
+import {ToasterPortal} from 'bear-react-toaster';
 import gridConfig from 'config/grid';
 import theme from 'config/theme';
-import {HashRouter, Route, Switch} from 'react-router-dom';
 
-import React from 'react';
-import HomeRoot from '../views/HomeRoot';
 import {SidebarProvider} from 'provider/SidebarProvider';
-import {ToasterPortal} from 'bear-react-toaster';
+import MainRouter from "./MainRouter";
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <HashRouter>
                     <SidebarProvider>
-                        <HomeRoot/>
+                        <MainRouter/>
 
                         <ToasterPortal timeout={3000000}/>
                     </SidebarProvider>

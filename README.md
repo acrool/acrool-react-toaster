@@ -6,6 +6,12 @@
 [![NPM](https://img.shields.io/npm/v/bear-react-toaster.svg)](https://www.npmjs.com/package/bear-react-toaster)
 [![npm](https://img.shields.io/npm/dm/bear-react-toaster.svg)](https://www.npmjs.com/package/bear-react-toaster)
 
+## Support Version Map
+
+React | React Scripts | Bear React Grid | 
+------|---------------|----------------:|
+18    | 5.0.1         |           2.0.0 |
+17    | 4.0.3         |          1.0.5 |
 
 ## Install
 

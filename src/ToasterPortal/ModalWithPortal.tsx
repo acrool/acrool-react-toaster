@@ -6,6 +6,7 @@ const modalRoot = document.getElementById('modal-root');
 
 export interface IProps{
     name: string,
+    children: React.ReactNode,
 }
 
 class ModalWithPortal extends React.Component<IProps, {}> {
