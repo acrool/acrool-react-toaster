@@ -28,7 +28,6 @@
     "react-hook-form": "7.31.3",
     "react-router-dom": "6.3.0",
     "react-scripts": "link:../node_modules/react-scripts",
-    "eslint-config-react-app": "link:../node_modules/eslint-config-react-app",
     "styled-components": "5.3.5",
     "framer-motion": "6.3.11",
     "typescript": "link:../node_modules/typescript"
@@ -38,7 +37,8 @@
     "@testing-library/jest-dom": "link:../node_modules/@testing-library/jest-dom",
     "@testing-library/react": "link:../node_modules/@testing-library/react",
     "@testing-library/user-event": "link:../node_modules/@testing-library/user-event",
-    "@types/jest": "link:../node_modules/@types/jest"
+    "@types/jest": "link:../node_modules/@types/jest",
+    "eslint-config-react-app": "link:../node_modules/eslint-config-react-app"
   },
   "browserslist": {
     "production": [
