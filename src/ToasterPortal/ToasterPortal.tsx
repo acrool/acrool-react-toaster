@@ -81,7 +81,7 @@ class ToasterPortal extends React.Component<IProps, IState> {
     };
 
     render() {
-        return <ModalWithPortal name="toaster">
+        return <ModalWithPortal>
 
             <div className={elClassName.modal}>
                 {this.renderItems()}

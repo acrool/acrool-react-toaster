@@ -20,12 +20,6 @@ yarn add bear-react-toaster
 ```
 
 ## Usage
-add in your index.html
-
-```tsx
-<div id="modal-root"></div>
-```
-
 
 add in your index.tsx
 ```tst
