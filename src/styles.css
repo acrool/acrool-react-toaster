@@ -1,17 +1,25 @@
-.bear-react-toaster__modal *,
-.bear-react-toaster__modal *::before,
-.bear-react-toaster__modal *::after{
+.bear-react-toaster__portal *,
+.bear-react-toaster__portal *::before,
+.bear-react-toaster__portal *::after{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     line-height: normal;
 }
 
-.bear-react-toaster__modal{
+.bear-react-toaster__portal{
+    --default-index-portal: 80;
+    --default-success-color: #07bc0c;
+    --default-warning-color: #f1c40f;
+    --default-error-color: #e74c3c;
+    --default-info-color: #3498db;
+}
+
+.bear-react-toaster__portal{
     position: fixed;
     top: 20px;
     margin: 0 auto;
     text-align: center;
-    z-index: 50;
+    z-index: var(--index-portal, var(--default-index-portal));
 
     left: 50%;
     transform: translateX(-50%);
@@ -39,20 +47,20 @@
 .bear-react-toaster__content{}
 
 .bear-react-toaster__message-status-success{
-    background-color: var(--success-color, #07bc0c);
+    background-color: var(--success-color, var(--default-success-color));
     color: #fff;
 }
 .bear-react-toaster__message-status-warning{
-    background-color: var(--warning-color, #f1c40f);
+    background-color: var(--warning-color, var(--default-warning-color));
     color: #fff;
 }
 
 .bear-react-toaster__message-status-error{
-    background-color: var(--error-color, #e74c3c);
+    background-color: var(--error-color, var(--default-error-color));
     color: #fff;
 }
 .bear-react-toaster__message-status-info{
-    background-color: var(--info-color, #3498db);
+    background-color: var(--info-color, var(--default-info-color));
     color: #fff;
 }
 

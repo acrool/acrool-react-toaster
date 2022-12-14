@@ -1,11 +1,7 @@
 import React, {Component, Ref} from 'react';
 import ReactDOM from 'react-dom';
-import {createRoot} from 'react-dom/client';
 
 const getCreatePortal = () => ReactDOM.createPortal;
-
-
-// const modalRoot = document.getElementById('modal-root');
 
 type TSelector = () => HTMLElement
 
@@ -15,28 +11,28 @@ function getParentElement(parentSelector: TSelector): HTMLElement {
 
 interface IProps{
     portalClassName: string,
-    children: JSX.Element,
+    children: React.ReactNode,
     parentSelector: TSelector,
 }
 
-interface IState {
-    // state types
-}
+interface IState {}
 
+/**
+ * 將內容傳送到外部Body內的方法
+ */
 class ModalWithPortal extends React.Component<IProps, IState> {
     el: HTMLElement;
     portal?: Component;
 
     static defaultProps = {
         isOpen: false,
-        portalClassName: 'bear-react-toaster-portal',
         parentSelector: () => document.body,
     };
 
     constructor(props: IProps) {
         super(props);
         const el = document.createElement('div');
-        el.setAttribute('data-name', props.portalClassName);
+        el.className = props.portalClassName;
         this.el = el;
     }
 
@@ -44,7 +40,6 @@ class ModalWithPortal extends React.Component<IProps, IState> {
         const parent = getParentElement(this.props.parentSelector);
         if(parent){
             parent.appendChild(this.el);
-            // this.renderPortal();
         }
 
     }
@@ -54,34 +49,7 @@ class ModalWithPortal extends React.Component<IProps, IState> {
         if(parent){
             parent.removeChild(this.el);
         }
-
     }
-
-    // getSnapshotBeforeUpdate(prevProps: IProps) {
-    //     const prevParent = getParentElement(prevProps.parentSelector);
-    //     const nextParent = getParentElement(this.props.parentSelector);
-    //     return { prevParent, nextParent };
-    // }
-    //
-    //
-    // componentDidUpdate(prevProps: IProps, _, snapshot: { prevParent: IProps, nextParent: IProps }) {
-    //     const { isOpen, portalClassName } = this.props;
-    //
-    //     if (prevProps.portalClassName !== portalClassName) {
-    //         this.el.className = portalClassName;
-    //     }
-    //
-    //     const { prevParent, nextParent } = snapshot;
-    //     if (nextParent !== prevParent) {
-    //         prevParent.removeChild(this.el);
-    //         nextParent.appendChild(this.el);
-    //     }
-    //
-    //     // Stop unnecessary renders if modal is remaining closed
-    //     if (!prevProps.isOpen && !isOpen) return;
-    //
-    //     !isReact16 && this.renderPortal(this.props);
-    // }
 
 
     portalRef = (ref: Component) => {
@@ -94,8 +62,6 @@ class ModalWithPortal extends React.Component<IProps, IState> {
             this.props.children,
             this.el,
         );
-        // const root = createPortal(this.el);
-        // root.render(this.props.children);
     };
 
 

@@ -12,7 +12,7 @@ export const config = {
  */
 export const elClassName = {
     root: `${config.elCLassPrefix}root`,
-    modal: `${config.elCLassPrefix}modal`,
+    portal: `${config.elCLassPrefix}portal`,
     message: `${config.elCLassPrefix}message`,
     messageContent: `${config.elCLassPrefix}content`,
     messageStatusSuccess: `${config.elCLassPrefix}message-status-success`,
