@@ -1,7 +1,7 @@
 import React from 'react';
-import {uuid} from 'bear-jsutils/key';
-import {removeByIndex} from 'bear-jsutils/array';
-import {EStatus, IItem, THidden, TShow, TShowMulti} from '../typings';
+import {ulid} from 'ulid';
+import {removeByIndex} from '../utils';
+import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
 import ModalWithPortal from './ModalWithPortal';
 import {elClassName} from '../config';
 import Toaster from '../Toaster';
@@ -44,7 +44,7 @@ class ToasterPortal extends React.Component<IProps, IState> {
 
 
     _show: TShow = (newItem) => {
-        const key = uuid();
+        const key = ulid().toLowerCase();
         this.setState((prev) => {
             const items = prev.items.concat({
                 ...newItem,

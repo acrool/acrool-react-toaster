@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Message from './Message';
-import {EStatus} from '../typings';
+import {EStatus} from '../types';
 import {elClassName} from '../config';
 
 interface IProps {

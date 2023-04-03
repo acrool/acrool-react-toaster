@@ -1,6 +1,4 @@
 
-
-
 export const config = {
     modalId: 'root-modal',
     elCLassPrefix: 'bear-react-toaster__',

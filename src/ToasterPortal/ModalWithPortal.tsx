@@ -1,4 +1,4 @@
-import React, {Component, Ref} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 const getCreatePortal = () => ReactDOM.createPortal;

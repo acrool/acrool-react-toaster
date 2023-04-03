@@ -3,7 +3,7 @@ import CSS from 'csstype';
 import {elClassName} from '../config';
 import Icon from './Icon';
 
-import {EStatus} from '../typings';
+import {EStatus} from '../types';
 
 
 const themeMap = {
