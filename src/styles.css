@@ -44,7 +44,9 @@
     margin: 0 auto;
 }
 
-.bear-react-toaster__content{}
+.bear-react-toaster__content{
+    white-space: nowrap
+}
 
 .bear-react-toaster__message-status-success{
     background-color: var(--success-color, var(--default-success-color));
