@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://github.com/imagine10255/bear-react-toaster/compare/v3.0.3...v3.0.4) (2023-09-02)
+
+
+### Features
+
+* add toaster-portal custom classname props ([80c0640](https://github.com/imagine10255/bear-react-toaster/commit/80c0640df16817862e82953afef9241ec1603a15))
+
 ### [3.0.3](https://github.com/imagine10255/bear-react-toaster/compare/v3.0.2...v3.0.3) (2023-09-02)
 
 
