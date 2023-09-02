@@ -14,7 +14,6 @@ interface IProps {
 
 
 const Toaster = ({
-    isVisible = false,
     onEntered = () => {},
     status,
     message,
