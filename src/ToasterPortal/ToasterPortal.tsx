@@ -1,5 +1,6 @@
 import React from 'react';
 import {ulid} from 'ulid';
+import cx from 'classnames';
 import {removeByIndex} from '../utils';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
 import ModalWithPortal from './ModalWithPortal';
@@ -80,7 +81,8 @@ class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
     };
 
     render() {
-        return <ModalWithPortal portalClassName={elClassName.portal}>
+        const {className} = this.props;
+        return <ModalWithPortal portalClassName={cx(elClassName.portal, className)}>
             {this.renderItems()}
         </ModalWithPortal>;
     }
