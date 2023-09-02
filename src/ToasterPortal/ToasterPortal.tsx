@@ -5,15 +5,14 @@ import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
 import ModalWithPortal from './ModalWithPortal';
 import {elClassName} from '../config';
 import Toaster from '../Toaster';
+import {IToasterPortalProps} from './types';
 import '../styles.css';
 
 
 interface IState {
     items: IItem[],
 }
-interface IProps {
-    timeout?: number,
-}
+
 
 /**
  * Global var
@@ -24,14 +23,14 @@ export let toast: TShowMulti;
 /**
  * ToasterPortal
  */
-class ToasterPortal extends React.Component<IProps, IState> {
+class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
     static defaultProps = {
     };
     state: IState = {
         items: [],
     };
 
-    constructor(props: IProps) {
+    constructor(props: IToasterPortalProps) {
         super(props);
 
         // set global
