@@ -49,20 +49,20 @@
 }
 
 .bear-react-toaster__message-status-success{
-    background-color: var(--success-color, var(--default-success-color));
+    background: var(--success-color, var(--default-success-color));
     color: #fff;
 }
 .bear-react-toaster__message-status-warning{
-    background-color: var(--warning-color, var(--default-warning-color));
+    background: var(--warning-color, var(--default-warning-color));
     color: #fff;
 }
 
 .bear-react-toaster__message-status-error{
-    background-color: var(--error-color, var(--default-error-color));
+    background: var(--error-color, var(--default-error-color));
     color: #fff;
 }
 .bear-react-toaster__message-status-info{
-    background-color: var(--info-color, var(--default-info-color));
+    background: var(--info-color, var(--default-info-color));
     color: #fff;
 }
 
