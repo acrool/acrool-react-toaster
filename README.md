@@ -1,10 +1,17 @@
-# bear-react-toaster
+# Bear React Toaster
 
-> Toaster library based for Reactjs
+<p align="center">
+    This is a toast message function for React development notifications
+</p>
 
+<div align="center">
 
-[![NPM](https://img.shields.io/npm/v/bear-react-toaster.svg)](https://www.npmjs.com/package/bear-react-toaster)
-[![npm](https://img.shields.io/npm/dm/bear-react-toaster.svg)](https://www.npmjs.com/package/bear-react-toaster)
+[![NPM](https://img.shields.io/npm/v/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
+[![npm downloads](https://img.shields.io/npm/dm/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
+[![npm](https://img.shields.io/npm/dt/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
+[![npm](https://img.shields.io/npm/l/bear-react-toaster?style=for-the-badge)](https://github.com/imagine10255/bear-react-toaster/blob/main/LICENSE)
+
+</div>
 
 ## Install
 
@@ -92,7 +99,6 @@ There is also a codesandbox template that you can fork and play with it:
 
 [![Edit react-editext-template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rkexls)
 
-[Component and setup docs](./docs/component.md)
 
 
 ## License
