@@ -17,11 +17,14 @@
 .bear-react-toaster__portal{
     position: fixed;
     top: 20px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    width: auto;
+
     margin: 0 auto;
-    text-align: center;
     z-index: var(--index-portal, var(--default-index-portal));
 
-    left: 50%;
     transform: translateX(-50%);
 
     display: flex;
@@ -30,10 +33,9 @@
 }
 
 .bear-react-toaster__message{
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    gap: 8px;
 
     background: #fff;
     padding: 10px;
@@ -42,10 +44,11 @@
     width: auto;
     height: 100%;
     margin: 0 auto;
+
 }
 
 .bear-react-toaster__content{
-    white-space: nowrap
+    flex: 1;
 }
 
 .bear-react-toaster__message-status-success{
@@ -67,9 +70,9 @@
 }
 
 .bear-react-toaster__message-icon{
-    width: 24px;
-    height: 24px;
-    transform: scale(0.6);
+    width: 18px;
+    height: 20px;
+    flex: 0 0 auto;
 }
 
 
@@ -85,7 +88,7 @@
     opacity: 0;
     transform: translateY(0);
     margin-bottom: 0;
-    height: 42px;
+    height: auto;
 }
 .bear-react-toaster__message-animation.alert-enter-active{
     opacity: 1;
