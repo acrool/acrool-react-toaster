@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.2-alpha.0](https://github.com/imagine10255/bear-react-toaster/compare/v3.1.1...v3.1.2-alpha.0) (2024-05-01)
+
+
+### Bug Fixes
+
+* font over window size ([b5c1cb5](https://github.com/imagine10255/bear-react-toaster/commit/b5c1cb5a535c44fafe0f46997664e42eb372a100))
+
 ### [3.1.1](https://github.com/imagine10255/bear-react-toaster/compare/v3.1.0...v3.1.1) (2024-01-20)
 
 ## [3.1.0](https://github.com/imagine10255/bear-react-toaster/compare/v3.1.0-alpha.0...v3.1.0) (2023-12-20)
