@@ -1,13 +1,11 @@
 import React from 'react';
 import {ulid} from 'ulid';
-import cx from 'classnames';
 import {removeByIndex} from '../utils';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
 import ModalWithPortal from './ModalWithPortal';
-import {elClassName} from '../config';
 import Toaster from '../Toaster';
 import {IToasterPortalProps} from './types';
-import '../styles.css';
+import {defaultTimeout, rootId} from '../config';
 
 
 interface IState {
@@ -26,6 +24,8 @@ export let toast: TShowMulti;
  */
 class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
     static defaultProps = {
+        id: rootId,
+        defaultTimeout: defaultTimeout
     };
     state: IState = {
         items: [],
@@ -67,7 +67,7 @@ class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
 
     renderItems = () => {
         const {items} = this.state;
-        const {timeout} = this.props;
+        const {defaultTimeout} = this.props;
         return items.map(item => {
             return <Toaster
                 key={item.key}
@@ -75,14 +75,15 @@ class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
                 onEntered={() => this._hidden(item.key)}
                 message={item?.message}
                 status={item?.status}
-                timeout={timeout}
+                timeout={defaultTimeout}
             />;
         });
     };
 
     render() {
-        const {className} = this.props;
-        return <ModalWithPortal portalClassName={cx(elClassName.portal, className)}>
+        return <ModalWithPortal 
+            id={this.props.id}
+        >
             {this.renderItems()}
         </ModalWithPortal>;
     }

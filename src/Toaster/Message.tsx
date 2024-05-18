@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import CSS from 'csstype';
-import {elClassName} from '../config';
 import Icon from './Icon';
+import styles from './toaster.module.scss';
 
 import {EStatus} from '../types';
 
@@ -9,25 +9,24 @@ import {EStatus} from '../types';
 const themeMap = {
     [EStatus.success]: {
         icon: Icon.success,
-        elClass: elClassName.messageStatusSuccess,
+        elClass: styles.statusSuccess,
     },
     [EStatus.warning]: {
         icon: Icon.warning,
-        elClass: elClassName.messageStatusWarning,
+        elClass: styles.statusWarning,
     },
     [EStatus.error]: {
         icon: Icon.error,
-        elClass: elClassName.messageStatusError,
+        elClass: styles.statusError,
     },
     [EStatus.info]: {
         icon: Icon.info,
-        elClass: elClassName.messageStatusInfo,
+        elClass: styles.statusInfo,
     }
 };
 
 interface IProps {
     style?: CSS.Properties,
-    className?: string,
     onClose?: () => void,
     status?: EStatus,
     children?: ReactNode,
@@ -39,25 +38,23 @@ interface IProps {
 const Message = ({
     style,
     status,
-    className,
     children,
-    onClose,
 }: IProps) => {
 
     const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
 
     return (
         <div
-            className={[elClassName.message, statusTheme?.elClass].join(' ').trim()}
+            className={[styles.message, statusTheme?.elClass].join(' ').trim()}
             style={style}
             role="alert"
         >
             {statusTheme && (
-                <div className={elClassName.messageIcon}>
+                <div className={styles.icon}>
                     <statusTheme.icon/>
                 </div>
             )}
-            {children && <div className={elClassName.messageContent}>{children}</div>}
+            {children && <div className={styles.content}>{children}</div>}
         </div>
     );
 };

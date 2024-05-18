@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import CSSTransition from 'react-transition-group/CSSTransition';
 import Message from './Message';
 import {EStatus} from '../types';
-import {elClassName} from '../config';
+import styles from './toaster.module.scss';
 
 interface IProps {
     isVisible: boolean,
@@ -20,7 +20,7 @@ const Toaster = ({
     timeout,
 }: IProps) => {
     const [visible, setVisible] = useState(false);
-    // const [showMessage, setShowMessage] = useState(false);
+
     useEffect(() => {
         setVisible(true);
     }, []);
@@ -35,14 +35,20 @@ const Toaster = ({
             in={visible}
             timeout={timeout ? timeout : 3000}
 
-            classNames="alert"
+            classNames={{
+                enter: styles.alertEnter,
+                enterActive: styles.alertEnterActive,
+                exit: styles.alertExit,
+                exitActive: styles.alertExitActive,
+            }}
+
             // unmountOnExit
             // onEnter={() => setShowButton(false)}
             onExited={onEntered}
             // onEntered={onEntered}
             onEntered={handleHidden}
         >
-            <div className={elClassName.messageAnimation} onClick={handleHidden}>
+            <div className={styles.animation} onClick={handleHidden}>
                 <Message status={status}>{message}</Message>
             </div>
         </CSSTransition>

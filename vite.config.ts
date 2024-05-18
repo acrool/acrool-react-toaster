@@ -15,6 +15,13 @@ export default defineConfig({
         }),
         visualizer() as Plugin,
     ],
+    css: {
+        modules: {
+            localsConvention: 'camelCase',
+            scopeBehaviour: 'local',
+            generateScopedName: 'acrool-react-toaster__[name]__[local]',
+        }
+    },
     build: {
         sourcemap: process.env.NODE_ENV !== 'production',
         lib: {

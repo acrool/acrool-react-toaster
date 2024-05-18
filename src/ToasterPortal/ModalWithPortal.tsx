@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import styles from './portal.module.scss';
 
 const getCreatePortal = () => ReactDOM.createPortal;
 
@@ -10,7 +11,7 @@ function getParentElement(parentSelector: TSelector): HTMLElement {
 }
 
 interface IProps{
-    portalClassName: string,
+    id: string,
     children: React.ReactNode,
     parentSelector: TSelector,
 }
@@ -32,7 +33,8 @@ class ModalWithPortal extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         const el = document.createElement('div');
-        el.className = props.portalClassName;
+        el.id = props.id;
+        el.className = styles.root;
         this.el = el;
     }
 

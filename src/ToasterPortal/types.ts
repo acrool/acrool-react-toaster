@@ -1,5 +1,5 @@
 
 export interface IToasterPortalProps {
-    className?: string
-    timeout?: number
+    id?: string
+    defaultTimeout?: number
 }

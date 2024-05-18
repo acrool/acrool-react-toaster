@@ -69,7 +69,7 @@ function App() {
         Click on the Vite and React logos to learn more
             </p>
 
-            <ToasterPortal timeout={5000} className="test-portal"/>
+            <ToasterPortal defaultTimeout={999999}/>
         </div>
     );
 }

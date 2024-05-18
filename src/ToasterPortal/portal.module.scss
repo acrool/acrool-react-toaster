@@ -1,0 +1,31 @@
+.root *,
+.root *::before,
+.root *::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    line-height: normal;
+}
+
+.root{
+    --default-index-portal: 80;
+    --default-success-color: #07bc0c;
+    --default-warning-color: #f1c40f;
+    --default-error-color: #e74c3c;
+    --default-info-color: #3498db;
+}
+
+.root{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 100%;
+    width: auto;
+
+    margin: 0 auto;
+    z-index: var(--index-portal, var(--default-index-portal));
+
+    display: flex;
+    flex-direction: column;
+
+}
