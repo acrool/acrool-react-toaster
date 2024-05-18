@@ -1,10 +1,10 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import {EStatus, toast, ToasterPortal} from 'bear-react-toaster';
+import {EStatus, toast, ToasterPortal} from '@acrool/react-toaster';
 
 import './App.css';
 import './bootstrap-base.min.css';
-import 'bear-react-toaster/dist/index.css';
+import '@acrool/react-toaster/dist/index.css';
 
 
 

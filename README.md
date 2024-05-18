@@ -1,4 +1,4 @@
-# Bear React Toaster
+# Acrool React Toaster
 
 <p align="center">
     This is a toast message function for React development notifications
@@ -6,31 +6,31 @@
 
 <div align="center">
 
-[![NPM](https://img.shields.io/npm/v/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
-[![npm downloads](https://img.shields.io/npm/dm/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
-[![npm](https://img.shields.io/npm/dt/bear-react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-react-toaster)
-[![npm](https://img.shields.io/npm/l/bear-react-toaster?style=for-the-badge)](https://github.com/imagine10255/bear-react-toaster/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/v/@acrool/react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/react-toaster)
+[![npm downloads](https://img.shields.io/npm/dm/@acrool/react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/react-toaster)
+[![npm](https://img.shields.io/npm/dt/@acrool/react-toaster.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/react-toaster)
+[![npm](https://img.shields.io/npm/l/@acrool/react-toaster?style=for-the-badge)](https://github.com/imagine10255/@acrool/react-toaster/blob/main/LICENSE)
 
 </div>
 
 ## Install
 
 ```bash
-yarn add bear-react-toaster
+yarn add @acrool/react-toaster
 ```
 
 ## Usage
 
 add in your index.tsx
 ```tst
-import "bear-react-toaster/dist/index.css";
+import "@acrool/react-toaster/dist/index.css";
 
 ```
 
 add in your App.tsx
 
 ```tsx
-import {ToasterPortal} from "bear-react-toaster";
+import {ToasterPortal} from "@acrool/react-toaster";
 
 const App = () => {
     return (
@@ -44,7 +44,7 @@ const App = () => {
 
 then in your page
 ```tsx
-import {EStatus, toast} from 'bear-react-toaster';
+import {EStatus, toast} from '@acrool/react-toaster';
 
 
 const BaseUsed = () => {

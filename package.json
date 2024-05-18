@@ -1,8 +1,9 @@
 {
-  "name": "bear-react-toaster",
+  "name": "@acrool/react-toaster",
   "version": "3.1.2-alpha.1",
   "description": "Toaster library based for Reactjs",
   "keywords": [
+    "acrool",
     "react",
     "typescript",
     "toaster",
@@ -13,13 +14,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imagine10255/bear-react-toaster.git"
+    "url": "https://github.com/acrool/acrool-react-toaster.git"
   },
-  "module": "./dist/bear-react-toaster.es.js",
+  "module": "./dist/acrool-react-toaster.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/bear-react-toaster.es.js"
+      "import": "./dist/acrool-react-toaster.es.js"
     },
     "./dist/index.css": "./dist/style.css"
   },

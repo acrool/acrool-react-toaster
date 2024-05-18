@@ -28,7 +28,7 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
             formats: ['es'],
-            fileName: (format) => `bear-react-toaster.${format}.js`,
+            fileName: (format) => `acrool-react-toaster.${format}.js`,
         },
         cssTarget: 'chrome61',
         rollupOptions: {
