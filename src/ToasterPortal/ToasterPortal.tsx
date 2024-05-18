@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {ulid} from 'ulid';
 import {removeByIndex} from '../utils';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
@@ -18,31 +18,46 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
 
     // set global
     useEffect(() => {
-        toast = _show as TShowMulti;
-        toast.success = (item) => _show({...item, status: EStatus.success});
-        toast.warning = (item) => _show({...item, status: EStatus.warning});
-        toast.error = (item) => _show({...item, status: EStatus.error});
-        toast.info = (item) => _show({...item, status: EStatus.info});
+        toast = show as TShowMulti;
+        toast.success = (item) => show({...item, status: EStatus.success});
+        toast.warning = (item) => show({...item, status: EStatus.warning});
+        toast.error = (item) => show({...item, status: EStatus.error});
+        toast.info = (item) => show({...item, status: EStatus.info});
     }, []);
 
-    const _show: TShow = (newItem) => {
-        const key = ulid().toLowerCase();
-        setItems(prevItems => [...prevItems, {key, ...newItem}]);
-    };
 
-    const _hidden: THidden = (key) => {
+    /**
+     * 顯示 Toaster
+     * @param newItem
+     */
+    const show: TShow = useCallback((newItem) => {
+        const key = ulid().toLowerCase();
+        // setItems(prevItems => [...prevItems, {key, ...newItem}]);
+        setItems(prevItems => [{key, ...newItem}, ...prevItems, ]);
+    }, []);
+
+
+    /**
+     * 隱藏 Toaster
+     * @param key
+     */
+    const hidden: THidden = useCallback((key) => {
         setItems(prevItems => {
             const index = prevItems.findIndex(row => row.key === key);
             return removeByIndex(prevItems, index);
         });
-    };
+    }, []);
 
+
+    /**
+     * 渲染項目
+     */
     const renderItems = () => {
         return items.map(item => {
             return <Toaster
                 key={item.key}
                 isVisible={true}
-                onEntered={() => _hidden(item.key)}
+                onEntered={() => hidden(item.key)}
                 message={item?.message}
                 status={item?.status}
                 timeout={props.defaultTimeout || defaultTimeout}
