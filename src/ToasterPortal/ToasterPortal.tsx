@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {ulid} from 'ulid';
 import {removeByIndex} from '../utils';
 import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
@@ -8,86 +8,53 @@ import {IToasterPortalProps} from './types';
 import {defaultTimeout, rootId} from '../config';
 
 
-interface IState {
-    items: IItem[],
-}
-
-
 /**
  * Global var
  */
 export let toast: TShowMulti;
 
+const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
+    const [items, setItems] = useState<IItem[]>([]);
 
-/**
- * ToasterPortal
- */
-class ToasterPortal extends React.Component<IToasterPortalProps, IState> {
-    static defaultProps = {
-        id: rootId,
-        defaultTimeout: defaultTimeout
-    };
-    state: IState = {
-        items: [],
-    };
+    // set global
+    useEffect(() => {
+        toast = _show as TShowMulti;
+        toast.success = (item) => _show({...item, status: EStatus.success});
+        toast.warning = (item) => _show({...item, status: EStatus.warning});
+        toast.error = (item) => _show({...item, status: EStatus.error});
+        toast.info = (item) => _show({...item, status: EStatus.info});
+    }, []);
 
-    constructor(props: IToasterPortalProps) {
-        super(props);
-
-        // set global
-        toast = this._show as TShowMulti;
-        toast.success = (item) => this._show({...item, status: EStatus.success});
-        toast.warning = (item) => this._show({...item, status: EStatus.warning});
-        toast.error = (item) => this._show({...item, status: EStatus.error});
-        toast.info = (item) => this._show({...item, status: EStatus.info});
-    }
-
-
-    _show: TShow = (newItem) => {
+    const _show: TShow = (newItem) => {
         const key = ulid().toLowerCase();
-        this.setState((prev) => {
-            const items = prev.items.concat({
-                ...newItem,
-                key,
-            });
-            return {
-                items
-            };
+        setItems(prevItems => [...prevItems, {key, ...newItem}]);
+    };
+
+    const _hidden: THidden = (key) => {
+        setItems(prevItems => {
+            const index = prevItems.findIndex(row => row.key === key);
+            return removeByIndex(prevItems, index);
         });
     };
 
-    _hidden: THidden = (key) => {
-        this.setState((prev) => {
-            const index = prev.items.findIndex(row => row.key === key);
-            return {
-                items: removeByIndex(prev.items, index),
-            };
-        });
-    };
-
-    renderItems = () => {
-        const {items} = this.state;
-        const {defaultTimeout} = this.props;
+    const renderItems = () => {
         return items.map(item => {
             return <Toaster
                 key={item.key}
                 isVisible={true}
-                onEntered={() => this._hidden(item.key)}
+                onEntered={() => _hidden(item.key)}
                 message={item?.message}
                 status={item?.status}
-                timeout={defaultTimeout}
+                timeout={props.defaultTimeout || defaultTimeout}
             />;
         });
     };
 
-    render() {
-        return <ModalWithPortal 
-            id={this.props.id}
-        >
-            {this.renderItems()}
-        </ModalWithPortal>;
-    }
-}
-
+    return (
+        <ModalWithPortal id={props.id || rootId}>
+            {renderItems()}
+        </ModalWithPortal>
+    );
+};
 
 export default ToasterPortal;

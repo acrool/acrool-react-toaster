@@ -27,7 +27,7 @@ class ModalWithPortal extends React.Component<IProps, IState> {
 
     static defaultProps = {
         isOpen: false,
-        parentSelector: () => document.body,
+        parentSelector: () => document.getElementById('root'),
     };
 
     constructor(props: IProps) {

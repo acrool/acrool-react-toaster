@@ -23,6 +23,7 @@ export default defineConfig({
         }
     },
     build: {
+        minify: process.env.NODE_ENV === 'production',
         sourcemap: process.env.NODE_ENV !== 'production',
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
