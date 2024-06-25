@@ -20,6 +20,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "browser": "./dist/acrool-react-toaster.es.js",
       "import": "./dist/acrool-react-toaster.es.js"
     },
     "./dist/index.css": "./dist/style.css"

@@ -1,80 +1,44 @@
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import {EStatus, toast, ToasterPortal} from '@acrool/react-toaster';
+import Github from './assets/github.svg?react';
 
 import './App.css';
-import './bootstrap-base.min.css';
-import '@acrool/react-toaster/dist/index.css';
+import Example from './views/Example';
 
 
 
 function App() {
 
 
+    const renderHeader = () => {
+
+        const repositoryUrl = 'https://github.com/acrool/acrool-react-toaster';
+        const name = 'Acrool React Toaster';
+
+        return <>
+            <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">
+                <Github width={40} height={40}/>
+            </a>
+
+            <div className="banner-wrapper">
+                <img src="/logo.svg" alt={name}/>
+                <h1>{name}</h1>
+            </div>
+        </>;
+    };
+
+
     return (
         <div className="App">
-            <div>
-                <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>
-                Acrool React Toaster
-                <button type="button" onClick={() => console.log('click')}>Button</button>
-            </h1>
-            <div className="card">
-                <button color="success" onClick={() => toast({message: 'useToaster message'})}>
-                    useToaster message
-                </button>
-
-                <button color="success" onClick={() => toast({status: EStatus.success, message: 'useToaster success + message'})}>
-                    useToaster status + message
-                </button>
+            {renderHeader()}
 
 
-                <button color="success" onClick={() => toast.success({message: 'useToaster --- toaster.success'})}>
-                    useToaster --- toaster.success
-                </button>
+            <Example/>
 
-
-                <button color="success" onClick={() => toast({status: EStatus.warning, message: 'useToaster warning + message'})}>
-                    useToaster warning + message
-                </button>
-                <button color="danger" onClick={() => toast({status: EStatus.error, message: 'useToaster error + message'})}>
-                    useToaster error + message
-                </button>
-
-
-                <button color="danger" onClick={() => toast.error({message: 'useToaster --- toaster.error'})}>
-                    useToaster --- toaster.error
-                </button>
-
-
-                <button color="info" onClick={() => toast({status: EStatus.info, message: 'useToaster info + message'})}>
-                    useToaster info + message
-                </button>
-
-
-                <button color="success" onClick={() => toast({status: EStatus.success, message: 'window.toaster status + message'})}>
-                    window.toaster status + message
-                </button>
-
-
-
-                <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-            </p>
-
-            <ToasterPortal defaultTimeout={999999}/>
+            <ToasterPortal defaultTimeout={5000}/>
+            
         </div>
     );
+
 }
 
 export default App;
