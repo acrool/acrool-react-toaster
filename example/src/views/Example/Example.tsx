@@ -1,5 +1,5 @@
 import {EStatus, toast} from '@acrool/react-toaster';
-import Table from '@acrool/react-table';
+import AcroolTable from '@acrool/react-table';
 
 
 
@@ -7,7 +7,7 @@ const Example = () => {
    
     return <div style={{display: 'flex', gap: '10px', alignItems: 'flex-start', width: '100%'}}>
 
-        <Table
+        <AcroolTable
             isDark
             isVisiblePaginate={false}
             title={{
@@ -67,9 +67,7 @@ const Example = () => {
 
             ]}
 
-        >
-
-        </Table>
+        />
 
 
     </div>;

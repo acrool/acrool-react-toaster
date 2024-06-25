@@ -73,4 +73,4 @@ const Example = () => {
 
 ## License
 
-MIT © [imagine10255](https://github.com/imagine10255)
+MIT © [Acrool](https://github.com/acrool) & [Imagine](https://github.com/imagine10255)
