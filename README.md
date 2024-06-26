@@ -21,6 +21,13 @@
 
 
 
+
+## Features
+
+- Supports 5 status colors: default, success, info, warning, danger
+- Call via global method
+- Configurable disappearance delay seconds
+
 ## Install
 
 ```bash
@@ -69,6 +76,11 @@ const Example = () => {
 - toast.info
 - toast.warning
 - toast.error
+
+
+There is also a example that you can play with it:
+
+[![Play react-editext-example](https://raw.githubusercontent.com/acrool/acrool-react-toaster/main/play-in-example-button.svg)](https://acrool-react-toaster.pages.dev)
 
 
 ## License
