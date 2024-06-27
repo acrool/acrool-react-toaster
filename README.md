@@ -1,7 +1,7 @@
 # Acrool React Toaster
 
 <a href="https://acrool-react-toaster.pages.dev/" title="Acrool React Toaster - This is a toast message function for React development notifications">
-    <img src="https://acrool-react-toaster.pages.dev/og.webp" alt="Acrool React Toaster Logo"/>
+    <img src="https://raw.githubusercontent.com/acrool/acrool-react-toaster/main/example/public/og.webp" alt="Acrool React Toaster Logo"/>
 </a>
 
 <p align="center">
