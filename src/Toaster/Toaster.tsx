@@ -1,8 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import CSSTransition from 'react-transition-group/CSSTransition';
 import Message from './Message';
 import {EStatus} from '../types';
 import styles from './toaster.module.scss';
+import MotionDrawer from './MotionDrawer';
+import {EVisible} from './types';
+import {useCountDownTimer} from '@acrool/react-hooks';
 
 interface IProps {
     isVisible: boolean,
@@ -13,45 +15,37 @@ interface IProps {
 }
 
 
+
 const Toaster = ({
-    onEntered = () => {},
     status,
     message,
     timeout,
 }: IProps) => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState<EVisible>(EVisible.visible);
+
+    const {start} = useCountDownTimer();
 
     useEffect(() => {
-        setVisible(true);
+        start(timeout, () => setVisible(EVisible.hiddenAction));
     }, []);
 
     const handleHidden = useCallback(() => {
-        setVisible(false);
+        setVisible(EVisible.hidden);
+    }, []);
+
+    const handleHiddenAction = useCallback(() => {
+        setVisible(EVisible.hiddenAction);
     }, []);
 
 
+    if(visible === EVisible.hidden){
+        return null;
+    }
+
     return (
-        <CSSTransition
-            in={visible}
-            timeout={timeout ? timeout : 3000}
-
-            classNames={{
-                enter: styles.alertEnter,
-                enterActive: styles.alertEnterActive,
-                exit: styles.alertExit,
-                exitActive: styles.alertExitActive,
-            }}
-
-            // unmountOnExit
-            // onEnter={() => setShowButton(false)}
-            onExited={onEntered}
-            // onEntered={onEntered}
-            onEntered={handleHidden}
-        >
-            <div className={styles.animation} onClick={handleHidden}>
-                <Message status={status}>{message}</Message>
-            </div>
-        </CSSTransition>
+        <MotionDrawer className={styles.animation} visible={visible} onExitComplete={handleHidden}>
+            <Message status={status} onClose={handleHiddenAction}>{message}</Message>
+        </MotionDrawer>
     );
 };
 

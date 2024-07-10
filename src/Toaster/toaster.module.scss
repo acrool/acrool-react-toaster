@@ -15,12 +15,14 @@
 
 .content{
     flex: 1;
+    text-align: left;
 }
 
 .status-success{
     background: var(--success-color, var(--default-success-color));
     color: #fff;
 }
+
 .status-warning{
     background: var(--warning-color, var(--default-warning-color));
     color: #fff;
@@ -46,28 +48,7 @@
 .animation{
     overflow: hidden;
     cursor: pointer;
-    transition: opacity .6s, transform .4s, height .2s, margin-bottom .4s;
     margin: 0 auto;
-}
-
-.animation,
-.animation.alert-enter{
-    opacity: 0;
-    transform: translateY(-30px) scale(.7);
-    margin-bottom: 0;
-    height: 0;
-}
-.animation.alert-enter-active{
-    opacity: 1;
-    transform: translateY(10px) scale(1);
-    margin-bottom: 8px;
-    height: 40px;
-}
-.animation.alert-exit-active{
-    transform: translateY(0) scale(.7);
-    height: 0;
-    opacity: 0;
-    margin-bottom: 0;
 }
 
 

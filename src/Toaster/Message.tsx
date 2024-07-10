@@ -37,14 +37,15 @@ interface IProps {
  */
 const Message = ({
     style,
+    onClose,
     status,
     children,
 }: IProps) => {
-
     const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
 
     return (
         <div
+            onClick={onClose}
             className={[styles.message, statusTheme?.elClass].join(' ').trim()}
             style={style}
             role="alert"

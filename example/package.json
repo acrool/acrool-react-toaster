@@ -10,11 +10,15 @@
     "pages:dev": "wrangler pages dev --proxy 3000 -- yarn dev",
     "pages:deploy": "NODE_VERSION=18 yarn build && wrangler pages deploy ./dist"
   },
+  "resolutions": {
+    "styled-components": "5.3.9"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@acrool/react-toaster": "3.1.3",
-    "@acrool/react-table": "5.1.1-alpha.0",
+    "@acrool/react-toaster": "link:..",
+    "@acrool/react-table": "5.1.2-alpha.1",
+    "@acrool/react-grid": "5.2.2",
     "@types/dom-to-image": "^2.6.7",
     "@types/styled-components": "^5.1.26",
     "styled-components": "5.3.9",

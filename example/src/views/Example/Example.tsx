@@ -10,6 +10,8 @@ const Example = () => {
         <AcroolTable
             isDark
             isVisiblePaginate={false}
+            tableCellMediaSize={768}
+            gap="10px"
             title={{
                 name: {text: 'Name', col: '200px'},
                 use: {text: 'Use', col: true},

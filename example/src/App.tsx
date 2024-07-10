@@ -3,18 +3,21 @@ import {ToasterPortal} from '@acrool/react-toaster';
 import './App.css';
 import Example from './views/Example';
 import Banner from './components/Banner';
+import {GridThemeProvider} from '@acrool/react-grid';
 
 
 
 function App() {
     return (
-        <div className="App">
-            <Banner/>
-            <Example/>
+        <GridThemeProvider>
+            <div className="App">
+                <Banner/>
+                <Example/>
 
-            <ToasterPortal defaultTimeout={5000}/>
-            
-        </div>
+                <ToasterPortal defaultTimeout={4}/>
+
+            </div>
+        </GridThemeProvider>
     );
 
 }
