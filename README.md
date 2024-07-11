@@ -75,7 +75,7 @@ const Example = () => {
 - toast.success
 - toast.info
 - toast.warning
-- toast.error
+- toast.danger
 
 
 There is also a example that you can play with it:

@@ -10,7 +10,7 @@
     --default-index-portal: 80;
     --default-success-color: #07bc0c;
     --default-warning-color: #f1c40f;
-    --default-error-color: #e74c3c;
+    --default-danger-color: #e74c3c;
     --default-info-color: #3498db;
 }
 
@@ -28,6 +28,6 @@
     z-index: var(--index-portal, var(--default-index-portal));
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 
 }

@@ -28,8 +28,8 @@
     color: #fff;
 }
 
-.status-error{
-    background: var(--error-color, var(--default-error-color));
+.status-danger{
+    background: var(--danger-color, var(--default-danger-color));
     color: #fff;
 }
 .status-info{

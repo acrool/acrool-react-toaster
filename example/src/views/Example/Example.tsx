@@ -15,7 +15,6 @@ const Example = () => {
             title={{
                 name: {text: 'Name', col: '200px'},
                 use: {text: 'Use', col: true},
-
             }}
             data={[
                 {
@@ -55,15 +54,15 @@ const Example = () => {
                     onClickRow: () => toast.warning({message: 'Please check if your parameter settings are correct?'}),
                     field: {
                         name: 'Warning',
-                        use: 'toast.error({message: \'Please check if your parameter settings are correct?\'})',
+                        use: 'toast.warning({message: \'Please check if your parameter settings are correct?\'})',
                     }
                 },
                 {
                     id: 6,
-                    onClickRow: () => toast.error({message: 'Sorry, the account password you entered is wrong'}),
+                    onClickRow: () => toast.danger({message: 'Sorry, the account password you entered is wrong'}),
                     field: {
                         name: 'Error',
-                        use: 'toast.error({message: \'Sorry, the account password you entered is wrong\'})',
+                        use: 'toast.danger({message: \'Sorry, the account password you entered is wrong\'})',
                     }
                 },
 

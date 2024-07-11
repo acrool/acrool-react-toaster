@@ -3,7 +3,7 @@ export enum EStatus {
     success = 'success',
     info = 'info',
     warning = 'warning',
-    error = 'error',
+    danger = 'danger',
 }
 
 export interface IItem {
@@ -18,7 +18,7 @@ interface TShowStatus {
     success: TStatusShow,
     warning: TStatusShow,
     info: TStatusShow,
-    error: TStatusShow,
+    danger: TStatusShow,
 }
 
 export type TShowMulti = TShow & TShowStatus;

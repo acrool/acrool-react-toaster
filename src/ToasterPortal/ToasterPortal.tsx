@@ -21,7 +21,7 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
         toast = show as TShowMulti;
         toast.success = (item) => show({...item, status: EStatus.success});
         toast.warning = (item) => show({...item, status: EStatus.warning});
-        toast.error = (item) => show({...item, status: EStatus.error});
+        toast.danger = (item) => show({...item, status: EStatus.danger});
         toast.info = (item) => show({...item, status: EStatus.info});
     }, []);
 
@@ -33,7 +33,7 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
     const show: TShow = useCallback((newItem) => {
         const key = ulid().toLowerCase();
         // setItems(prevItems => [...prevItems, {key, ...newItem}]);
-        setItems(prevItems => [{key, ...newItem}, ...prevItems, ]);
+        setItems(prevItems => [...prevItems, {key, ...newItem}]);
     }, []);
 
 
