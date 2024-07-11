@@ -14,7 +14,7 @@ function App() {
                 <Banner/>
                 <Example/>
 
-                <ToasterPortal defaultTimeout={4}/>
+                <ToasterPortal defaultTimeout={4000}/>
 
             </div>
         </GridThemeProvider>
