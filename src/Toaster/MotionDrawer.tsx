@@ -1,6 +1,5 @@
 import {AnimatePresence, motion} from 'framer-motion';
 import {ReactNode} from 'react';
-import {EVisible} from './types';
 
 
 const spring = {
@@ -16,7 +15,7 @@ const variantsItem = {
 
 interface IProps {
     className?: string
-    visible: EVisible
+    isVisible?: boolean
     onExitComplete?: () => void
     children: ReactNode
 }
@@ -31,27 +30,38 @@ interface IProps {
  */
 const MotionRightDrawer = ({
     className,
-    visible,
+    isVisible,
     onExitComplete,
     children,
 }: IProps) => {
 
 
+    /**
+     * 渲染顯示介面
+     * (AnimatePresence 偵測 motion.div 不渲染則會自己移除Dom)
+     */
+    const renderMotion = () => {
+        if(!isVisible){
+            return null;
+        }
+
+        return <motion.div
+            className={className}
+            key="modal"
+            transition={spring}
+            variants={variantsItem}
+            animate="visible"
+            initial="initial"
+            exit="hidden"
+        >
+            {children}
+        </motion.div>;
+    };
+
+
     return <>
         <AnimatePresence onExitComplete={onExitComplete}>
-            {visible === EVisible.visible &&
-                <motion.div
-                    className={className}
-                    key="modal"
-                    transition={spring}
-                    variants={variantsItem}
-                    animate="visible"
-                    initial="initial"
-                    exit="hidden"
-                >
-                    {children}
-                </motion.div>
-            }
+            {renderMotion()}
         </AnimatePresence>
 
     </>;

@@ -1,9 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import Message from './Message';
+import Message from './_components/Message';
 import {EStatus} from '../types';
 import styles from './toaster.module.scss';
 import MotionDrawer from './MotionDrawer';
-import {EVisible} from './types';
 import {useCountDownTimer} from '@acrool/react-hooks';
 
 interface IProps {
@@ -15,36 +14,39 @@ interface IProps {
 }
 
 
-
+/**
+ * 吐司
+ * @param status
+ * @param message
+ * @param timeout
+ */
 const Toaster = ({
     status,
     message,
     timeout,
 }: IProps) => {
-    const [visible, setVisible] = useState<EVisible>(EVisible.visible);
+    const [isVisible, setVisible] = useState<boolean>(true);
 
     const {start} = useCountDownTimer();
 
     useEffect(() => {
-        start(timeout, () => setVisible(EVisible.hiddenAction));
+        // 如果時間到就隱藏
+        start(timeout, () => setVisible(false));
     }, []);
 
     const handleHidden = useCallback(() => {
-        setVisible(EVisible.hidden);
+        setVisible(false);
     }, []);
 
-    const handleHiddenAction = useCallback(() => {
-        setVisible(EVisible.hiddenAction);
-    }, []);
-
-
-    if(visible === EVisible.hidden){
-        return null;
-    }
 
     return (
-        <MotionDrawer className={styles.animation} visible={visible} onExitComplete={handleHidden}>
-            <Message status={status} onClose={handleHiddenAction}>{message}</Message>
+        <MotionDrawer className={styles.animation} isVisible={isVisible}>
+            <Message
+                onClose={handleHidden}
+                status={status}
+            >
+                {message}
+            </Message>
         </MotionDrawer>
     );
 };

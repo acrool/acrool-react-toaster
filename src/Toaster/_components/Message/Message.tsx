@@ -1,9 +1,9 @@
 import React, {ReactNode} from 'react';
 import CSS from 'csstype';
-import Icon from './Icon';
-import styles from './toaster.module.scss';
+import Icon from '../Icon';
+import styles from './message.module.scss';
 
-import {EStatus} from '../types';
+import {EStatus} from '../../../types';
 
 
 const themeMap = {
