@@ -1,26 +1,25 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import Message from './_components/Message';
-import {EStatus} from '../types';
-import styles from './toaster.module.scss';
+import {TOnExitComplete} from '../ModalWithPortal';
 import MotionDrawer from '../ModalWithPortal/MotionDrawer';
 import {useCountDownTimer} from '@acrool/react-hooks';
+import {IToasterProps} from './types';
 
-interface IProps {
-    isVisible: boolean,
-    onEntered: () => void,
-    status?: EStatus,
-    message: string,
-    timeout?: number,
+interface IProps extends IToasterProps{
+    onExitComplete: TOnExitComplete,
 }
 
 
 /**
  * 吐司
+ * @param onExitComple
  * @param status
  * @param message
  * @param timeout
  */
-const ToasterMessageControl = ({
+const ToasterWrapperControl = ({
+    onExitComplete,
+
     status,
     message,
     timeout,
@@ -40,7 +39,10 @@ const ToasterMessageControl = ({
 
 
     return (
-        <MotionDrawer isVisible={isVisible}>
+        <MotionDrawer
+            isVisible={isVisible}
+            onExitComplete={onExitComplete}
+        >
             <Message
                 onClose={handleHidden}
                 status={status}
@@ -51,5 +53,5 @@ const ToasterMessageControl = ({
     );
 };
 
-export default ToasterMessageControl;
+export default ToasterWrapperControl;
 

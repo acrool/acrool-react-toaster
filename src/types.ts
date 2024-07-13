@@ -6,14 +6,14 @@ export enum EStatus {
     error = 'error',
 }
 
-export interface IItem {
+export interface IRow {
     key: string,
     status?: EStatus,
     message: string,
 }
 
-export type TShow = (newItem: Omit<IItem, 'key'>) => void;
-export type TStatusShow = (newItem: Omit<IItem, 'key'|'status'>) => void;
+export type TShow = (newItem: Omit<IRow, 'key'>) => void;
+export type TStatusShow = (newItem: Omit<IRow, 'key'|'status'>) => void;
 interface TShowStatus {
     success: TStatusShow,
     warning: TStatusShow,
@@ -26,8 +26,3 @@ export type TShowMulti = TShow & TShowStatus;
 export type THidden = (key: string) => void;
 
 
-
-export interface IToasterPortalProps {
-    id?: string
-    defaultTimeout?: number
-}

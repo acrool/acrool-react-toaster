@@ -1,6 +1,7 @@
 import {AnimatePresence, motion} from 'framer-motion';
 import {ReactNode} from 'react';
 import styles from './portal.module.scss';
+import {TOnExitComplete} from './types';
 
 
 const spring = {
@@ -15,9 +16,8 @@ const variantsItem = {
 
 
 interface IProps {
-    className?: string
-    isVisible?: boolean
-    onExitComplete?: () => void
+    isVisible: boolean
+    onExitComplete?: TOnExitComplete
     children: ReactNode
 }
 
@@ -30,7 +30,6 @@ interface IProps {
  * @param children
  */
 const MotionDrawer = ({
-    className,
     isVisible,
     onExitComplete,
     children,

@@ -1,11 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {ulid} from 'ulid';
 import {removeByIndex} from './utils';
-import {EStatus, IItem, THidden, TShow, TShowMulti} from './types';
+import {EStatus, IRow, THidden, TShow, TShowMulti} from './types';
 import ModalWithPortal from './ModalWithPortal';
-import {IToasterPortalProps} from './types';
 import {defaultTimeout, rootId} from './config';
-import ToasterMessageControl from './ToasterMessage';
+import ToasterWrapper from './ToasterWrapper';
 
 
 /**
@@ -13,8 +12,13 @@ import ToasterMessageControl from './ToasterMessage';
  */
 export let toast: TShowMulti;
 
-const Toaster: React.FC<IToasterPortalProps> = (props) => {
-    const [items, setItems] = useState<IItem[]>([]);
+interface IProps {
+    id?: string
+    defaultTimeout?: number
+}
+
+const Toaster = (props: IProps) => {
+    const [rows, setRows] = useState<IRow[]>([]);
 
     // set global
     useEffect(() => {
@@ -32,8 +36,7 @@ const Toaster: React.FC<IToasterPortalProps> = (props) => {
      */
     const show: TShow = useCallback((newItem) => {
         const key = ulid().toLowerCase();
-        // setItems(prevItems => [...prevItems, {key, ...newItem}]);
-        setItems(prevItems => [...prevItems, {key, ...newItem}]);
+        setRows(prevRows => [...prevRows, {key, ...newItem}]);
     }, []);
 
 
@@ -42,9 +45,9 @@ const Toaster: React.FC<IToasterPortalProps> = (props) => {
      * @param key
      */
     const hidden: THidden = useCallback((key) => {
-        setItems(prevItems => {
-            const index = prevItems.findIndex(row => row.key === key);
-            return removeByIndex(prevItems, index);
+        setRows(prevRows => {
+            const index = prevRows.findIndex(row => row.key === key);
+            return removeByIndex(prevRows, index);
         });
     }, []);
 
@@ -53,13 +56,13 @@ const Toaster: React.FC<IToasterPortalProps> = (props) => {
      * 渲染項目
      */
     const renderItems = () => {
-        return items.map(item => {
-            return <ToasterMessageControl
-                key={item.key}
+        return rows.map(row => {
+            return <ToasterWrapper
+                onExitComplete={() => hidden(row.key)}
+                key={row.key}
                 isVisible={true}
-                onEntered={() => hidden(item.key)}
-                message={item?.message}
-                status={item?.status}
+                message={row?.message}
+                status={row?.status}
                 timeout={props.defaultTimeout || defaultTimeout}
             />;
         });
