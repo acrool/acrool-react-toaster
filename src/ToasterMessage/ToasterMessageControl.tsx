@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import Message from './_components/Message';
 import {EStatus} from '../types';
 import styles from './toaster.module.scss';
-import MotionDrawer from './MotionDrawer';
+import MotionDrawer from '../ModalWithPortal/MotionDrawer';
 import {useCountDownTimer} from '@acrool/react-hooks';
 
 interface IProps {
@@ -20,7 +20,7 @@ interface IProps {
  * @param message
  * @param timeout
  */
-const Toaster = ({
+const ToasterMessageControl = ({
     status,
     message,
     timeout,
@@ -40,7 +40,7 @@ const Toaster = ({
 
 
     return (
-        <MotionDrawer className={styles.animation} isVisible={isVisible}>
+        <MotionDrawer isVisible={isVisible}>
             <Message
                 onClose={handleHidden}
                 status={status}
@@ -51,5 +51,5 @@ const Toaster = ({
     );
 };
 
-export default Toaster;
+export default ToasterMessageControl;
 

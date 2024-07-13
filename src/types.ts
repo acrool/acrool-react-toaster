@@ -25,3 +25,9 @@ export type TShowMulti = TShow & TShowStatus;
 
 export type THidden = (key: string) => void;
 
+
+
+export interface IToasterPortalProps {
+    id?: string
+    defaultTimeout?: number
+}

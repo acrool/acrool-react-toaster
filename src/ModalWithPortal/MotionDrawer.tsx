@@ -1,5 +1,6 @@
 import {AnimatePresence, motion} from 'framer-motion';
 import {ReactNode} from 'react';
+import styles from './portal.module.scss';
 
 
 const spring = {
@@ -28,7 +29,7 @@ interface IProps {
  * @param onExitComplete
  * @param children
  */
-const MotionRightDrawer = ({
+const MotionDrawer = ({
     className,
     isVisible,
     onExitComplete,
@@ -46,7 +47,7 @@ const MotionRightDrawer = ({
         }
 
         return <motion.div
-            className={className}
+            className={styles.motionDrawer}
             key="modal"
             transition={spring}
             variants={variantsItem}
@@ -69,5 +70,5 @@ const MotionRightDrawer = ({
 };
 
 
-export default MotionRightDrawer;
+export default MotionDrawer;
 

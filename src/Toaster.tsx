@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {ulid} from 'ulid';
-import {removeByIndex} from '../utils';
-import {EStatus, IItem, THidden, TShow, TShowMulti} from '../types';
+import {removeByIndex} from './utils';
+import {EStatus, IItem, THidden, TShow, TShowMulti} from './types';
 import ModalWithPortal from './ModalWithPortal';
-import Toaster from '../Toaster';
 import {IToasterPortalProps} from './types';
-import {defaultTimeout, rootId} from '../config';
+import {defaultTimeout, rootId} from './config';
+import ToasterMessageControl from './ToasterMessage';
 
 
 /**
@@ -13,7 +13,7 @@ import {defaultTimeout, rootId} from '../config';
  */
 export let toast: TShowMulti;
 
-const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
+const Toaster: React.FC<IToasterPortalProps> = (props) => {
     const [items, setItems] = useState<IItem[]>([]);
 
     // set global
@@ -54,7 +54,7 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
      */
     const renderItems = () => {
         return items.map(item => {
-            return <Toaster
+            return <ToasterMessageControl
                 key={item.key}
                 isVisible={true}
                 onEntered={() => hidden(item.key)}
@@ -72,4 +72,4 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
     );
 };
 
-export default ToasterPortal;
+export default Toaster;

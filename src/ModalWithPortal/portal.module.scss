@@ -31,3 +31,11 @@
     flex-direction: column-reverse;
 
 }
+
+
+.motion-drawer{
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 auto;
+    user-select: none;
+}

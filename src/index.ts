@@ -1,4 +1,4 @@
-export {default as ToasterPortal, toast} from './ToasterPortal';
-export * from './ToasterPortal';
+export {default as ToasterPortal, toast} from './Toaster';
+export * from './Toaster';
 export * from './types';
 
