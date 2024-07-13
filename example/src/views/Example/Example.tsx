@@ -59,10 +59,10 @@ const Example = () => {
                 },
                 {
                     id: 6,
-                    onClickRow: () => toast.danger({message: 'Sorry, the account password you entered is wrong'}),
+                    onClickRow: () => toast.error({message: 'Sorry, the account password you entered is wrong'}),
                     field: {
                         name: 'Error',
-                        use: 'toast.danger({message: \'Sorry, the account password you entered is wrong\'})',
+                        use: 'toast.error({message: \'Sorry, the account password you entered is wrong\'})',
                     }
                 },
 

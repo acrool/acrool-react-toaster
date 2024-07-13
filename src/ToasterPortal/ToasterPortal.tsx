@@ -21,7 +21,7 @@ const ToasterPortal: React.FC<IToasterPortalProps> = (props) => {
         toast = show as TShowMulti;
         toast.success = (item) => show({...item, status: EStatus.success});
         toast.warning = (item) => show({...item, status: EStatus.warning});
-        toast.danger = (item) => show({...item, status: EStatus.danger});
+        toast.error = (item) => show({...item, status: EStatus.error});
         toast.info = (item) => show({...item, status: EStatus.info});
     }, []);
 

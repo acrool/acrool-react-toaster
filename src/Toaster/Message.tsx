@@ -15,9 +15,9 @@ const themeMap = {
         icon: Icon.warning,
         elClass: styles.statusWarning,
     },
-    [EStatus.danger]: {
-        icon: Icon.danger,
-        elClass: styles.statusDanger,
+    [EStatus.error]: {
+        icon: Icon.error,
+        elClass: styles.statusError,
     },
     [EStatus.info]: {
         icon: Icon.info,
