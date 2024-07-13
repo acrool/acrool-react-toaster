@@ -11,9 +11,10 @@ function getParentElement(parentSelector: TSelector): HTMLElement {
 }
 
 interface IProps{
-    id: string,
-    children: React.ReactNode,
-    parentSelector: TSelector,
+    id: string
+    className?: string
+    children: React.ReactNode
+    parentSelector: TSelector
 }
 
 interface IState {}
@@ -34,7 +35,7 @@ class ModalWithPortal extends React.Component<IProps, IState> {
         super(props);
         const el = document.createElement('div');
         el.id = props.id;
-        el.className = styles.root;
+        el.className = props.className;
         this.el = el;
     }
 

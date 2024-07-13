@@ -5,6 +5,7 @@ import {EStatus, IRow, THidden, TShow, TShowMulti} from './types';
 import ModalWithPortal from './ModalWithPortal';
 import {defaultTimeout, rootId} from './config';
 import ToasterWrapper from './ToasterWrapper';
+import styles from './toaster.module.scss';
 
 
 /**
@@ -69,7 +70,10 @@ const Toaster = (props: IProps) => {
     };
 
     return (
-        <ModalWithPortal id={props.id || rootId}>
+        <ModalWithPortal
+            id={props.id || rootId}
+            className={styles.className}
+        >
             {renderItems()}
         </ModalWithPortal>
     );
