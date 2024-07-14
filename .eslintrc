@@ -1,8 +1,12 @@
 {
+  "plugins": [
+    "simple-import-sort"
+  ],
   "extends": [
     "react-app"
   ],
   "rules": {
+    "simple-import-sort/imports": "warn",
     "quotes": [
       "warn",
       "single"

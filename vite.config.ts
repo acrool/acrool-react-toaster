@@ -4,12 +4,14 @@ import dts from 'vite-plugin-dts';
 import * as path from 'node:path';
 import {visualizer} from 'rollup-plugin-visualizer';
 import eslint from 'vite-plugin-eslint';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         eslint(),
         react(),
+        svgr(),
         dts({
             insertTypesEntry: true,
         }),

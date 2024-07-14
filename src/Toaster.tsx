@@ -1,11 +1,12 @@
+import ReactPortal from '@acrool/react-portal';
 import React, {useCallback, useEffect, useState} from 'react';
 import {ulid} from 'ulid';
-import {removeByIndex} from './utils';
-import {EStatus, IRow, THidden, TShow, TShowMulti} from './types';
-import ModalWithPortal from './ModalWithPortal';
+
 import {defaultTimeout, rootId} from './config';
-import ToasterWrapper from './ToasterWrapper';
 import styles from './toaster.module.scss';
+import ToasterWrapper from './ToasterWrapper';
+import {EStatus, IRow, THidden, TShow, TShowMulti} from './types';
+import {removeByIndex} from './utils';
 
 
 /**
@@ -70,12 +71,10 @@ const Toaster = (props: IProps) => {
     };
 
     return (
-        <ModalWithPortal
-            id={props.id || rootId}
-            className={styles.className}
-        >
+        <ReactPortal id={props.id || rootId}
+            className={styles.root}>
             {renderItems()}
-        </ModalWithPortal>
+        </ReactPortal>
     );
 };
 

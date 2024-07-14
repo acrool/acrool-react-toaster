@@ -1,10 +1,25 @@
 module.exports = {
     coverageDirectory: 'coverage',
     preset: 'ts-jest',
-    testEnvironment: 'node',
-    testMatch: ['**/__tests__/**/*.spec.[jt]s?(x)'],
-    moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/src/$1'
+    testEnvironment: 'jsdom',
+    testMatch: ['<rootDir>/**/*.test.ts?(x)'],
+    transform: {
+        '^.+\\.(t|j)sx?$': [
+            '@swc/jest',
+            {
+                jsc: {
+                    transform: {
+                        react: {
+                            runtime: 'automatic',
+                        },
+                    },
+                },
+            },
+        ],
     },
-    // setupFilesAfterEnv: ['./jest.setup.js']
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
+        "\\.(css)$": "identity-obj-proxy",
+    },
 };
+

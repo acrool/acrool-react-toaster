@@ -25,4 +25,5 @@ export type TShowMulti = TShow & TShowStatus;
 
 export type THidden = (key: string) => void;
 
+export type TOnExitComplete = () => void;
 

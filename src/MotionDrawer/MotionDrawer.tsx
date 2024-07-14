@@ -1,7 +1,8 @@
 import {AnimatePresence, motion} from 'framer-motion';
 import {ReactNode} from 'react';
-import styles from './portal.module.scss';
-import {TOnExitComplete} from './types';
+
+import {TOnExitComplete} from '../types';
+import styles from './motion-drawer.module.scss';
 
 
 const spring = {

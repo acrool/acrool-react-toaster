@@ -1,8 +1,9 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import Message from './_components/Message';
-import {TOnExitComplete} from '../ModalWithPortal';
-import MotionDrawer from '../ModalWithPortal/MotionDrawer';
 import {useCountDownTimer} from '@acrool/react-hooks';
+import React, {useCallback, useEffect, useState} from 'react';
+
+import MotionDrawer from '../MotionDrawer';
+import {TOnExitComplete} from '../types';
+import Message from './_components/Message';
 import {IToasterProps} from './types';
 
 interface IProps extends IToasterProps{

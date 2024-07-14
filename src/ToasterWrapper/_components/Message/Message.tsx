@@ -1,29 +1,12 @@
-import React, {ReactNode} from 'react';
+import {clsx} from 'clsx';
 import CSS from 'csstype';
-import Icon from '../Icon';
-import styles from './message.module.scss';
+import React, {ReactNode} from 'react';
 
 import {EStatus} from '../../../types';
+import {themeMap} from './config';
+import styles from './message.module.scss';
 
 
-const themeMap = {
-    [EStatus.success]: {
-        icon: Icon.success,
-        elClass: styles.statusSuccess,
-    },
-    [EStatus.warning]: {
-        icon: Icon.warning,
-        elClass: styles.statusWarning,
-    },
-    [EStatus.error]: {
-        icon: Icon.error,
-        elClass: styles.statusError,
-    },
-    [EStatus.info]: {
-        icon: Icon.info,
-        elClass: styles.statusInfo,
-    }
-};
 
 interface IProps {
     style?: CSS.Properties,
@@ -46,7 +29,7 @@ const Message = ({
     return (
         <div
             onClick={onClose}
-            className={[styles.message, statusTheme?.elClass].join(' ').trim()}
+            className={clsx(styles.message, statusTheme?.elClass)}
             style={style}
             role="alert"
         >
