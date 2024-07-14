@@ -1,1 +1,2 @@
-export {default} from './ToasterWrapperControl';
+export {default} from './ToasterWrapper';
+export * from './types';

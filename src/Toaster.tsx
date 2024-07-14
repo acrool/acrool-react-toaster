@@ -1,8 +1,10 @@
 import ReactPortal from '@acrool/react-portal';
+import {AnimatePresence} from 'framer-motion';
 import React, {useCallback, useEffect, useState} from 'react';
 import {ulid} from 'ulid';
 
 import {defaultTimeout, rootId} from './config';
+import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
 import {EStatus, IRow, IToasterProps, THidden, TShow, TShowMulti} from './types';
@@ -32,9 +34,9 @@ const Toaster = (props: IToasterProps) => {
      * 顯示 Toaster
      * @param newItem
      */
-    const show: TShow = useCallback((newItem) => {
-        const key = ulid().toLowerCase();
-        setRows(prevRows => [...prevRows, {key, ...newItem}]);
+    const show: TShow = useCallback((newRow) => {
+        const queueKey = ulid().toLowerCase();
+        setRows(prevRows => [...prevRows, {queueKey, ...newRow}]);
     }, []);
 
 
@@ -44,7 +46,7 @@ const Toaster = (props: IToasterProps) => {
      */
     const hidden: THidden = useCallback((key) => {
         setRows(prevRows => {
-            const index = prevRows.findIndex(row => row.key === key);
+            const index = prevRows.findIndex(row => row.queueKey === key);
             return removeByIndex(prevRows, index);
         });
     }, []);
@@ -55,21 +57,25 @@ const Toaster = (props: IToasterProps) => {
      */
     const renderItems = () => {
         return rows.map(row => {
-            return <ToasterWrapper
-                onExitComplete={() => hidden(row.key)}
-                key={row.key}
-                isVisible={true}
-                message={row?.message}
-                status={row?.status}
-                timeout={props.defaultTimeout || defaultTimeout}
-            />;
+            return <MotionDrawer key={row.queueKey}>
+                <ToasterWrapper
+                    status={row.status}
+                    timeout={row.timeout ?? props.defaultTimeout ?? defaultTimeout}
+                    onClose={() => hidden(row.queueKey)}
+                    message={row.message}
+                />
+            </MotionDrawer>;
         });
     };
 
     return (
-        <ReactPortal id={props.id || rootId}
-            className={styles.root}>
-            {renderItems()}
+        <ReactPortal
+            id={props.id || rootId}
+            className={styles.root}
+        >
+            <AnimatePresence>
+                {renderItems()}
+            </AnimatePresence>
         </ReactPortal>
     );
 };

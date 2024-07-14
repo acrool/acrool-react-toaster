@@ -1,8 +1,7 @@
 import {EStatus} from '../types';
 
-export interface IToasterProps {
-    isVisible: boolean,
-    status?: EStatus,
-    message: string,
-    timeout?: number,
+export interface IToasterWrapperProps {
+    status?: EStatus
+    timeout?: number
+    message: string
 }
