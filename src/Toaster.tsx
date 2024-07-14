@@ -5,7 +5,7 @@ import {ulid} from 'ulid';
 import {defaultTimeout, rootId} from './config';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
-import {EStatus, IRow, THidden, TShow, TShowMulti} from './types';
+import {EStatus, IRow, IToasterProps, THidden, TShow, TShowMulti} from './types';
 import {removeByIndex} from './utils';
 
 
@@ -14,12 +14,8 @@ import {removeByIndex} from './utils';
  */
 export let toast: TShowMulti;
 
-interface IProps {
-    id?: string
-    defaultTimeout?: number
-}
 
-const Toaster = (props: IProps) => {
+const Toaster = (props: IToasterProps) => {
     const [rows, setRows] = useState<IRow[]>([]);
 
     // set global

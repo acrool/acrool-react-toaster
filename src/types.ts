@@ -27,3 +27,8 @@ export type THidden = (key: string) => void;
 
 export type TOnExitComplete = () => void;
 
+
+export interface IToasterProps {
+    id?: string
+    defaultTimeout?: number
+}
