@@ -27,6 +27,7 @@
 - Supports 5 status colors: default, success, info, warning, danger
 - Call via global method
 - Configurable disappearance delay seconds
+- Plug and unplug using `@acrool/react-portal` and `framer-motion`
 
 ## Install
 
@@ -50,7 +51,7 @@ const App = () => {
     return (
         <div>
             <BaseUsed/>
-            <ToasterPortal timeout={3000}/>
+            <ToasterPortal defaultTimeout={3000}/>
         </div>
     );
 };
@@ -58,7 +59,7 @@ const App = () => {
 
 then in your page
 ```tsx
-import {EStatus, toast} from '@acrool/react-toaster';
+import {toast} from '@acrool/react-toaster';
 
 const Example = () => {
     return (
