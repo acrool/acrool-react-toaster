@@ -1,6 +1,6 @@
 {
   "name": "@acrool/react-toaster",
-  "version": "3.1.6",
+  "version": "3.1.7-alpha.0",
   "description": "Toaster library based for Reactjs",
   "keywords": [
     "acrool",
