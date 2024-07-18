@@ -21,8 +21,9 @@ interface TShowStatus {
 }
 
 export type TShowMulti = TShow & TShowStatus;
+export interface IToaster extends TShow, TShowStatus{}
 
-export type THidden = (key: string) => void;
+export type THide = (key: string) => void;
 
 
 export interface IToasterProps {

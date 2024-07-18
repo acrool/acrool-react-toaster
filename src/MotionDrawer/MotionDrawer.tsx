@@ -10,8 +10,8 @@ const spring = {
 
 const variantsItem: Variants = {
     initial: {height: 0, opacity: 0, translateY: '-30px', scale: .7, marginBottom: 0},
-    visible: {height: 'auto', opacity: 1, translateY: '10px', scale: 1, marginBottom: '8px'},
-    hidden: {height: 0, opacity: 0, translateY: '-5px'},
+    show: {height: 'auto', opacity: 1, translateY: '10px', scale: 1, marginBottom: '8px'},
+    exit: {height: 0, opacity: 0, translateY: '-5px'},
 };
 
 
@@ -32,9 +32,9 @@ const MotionDrawer = ({
         key="modal"
         transition={spring}
         variants={variantsItem}
-        animate="visible"
         initial="initial"
-        exit="hidden"
+        animate="show"
+        exit="exit"
     >
         {children}
     </motion.div>;
