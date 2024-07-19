@@ -29,7 +29,6 @@ const MotionDrawer = ({
 }: IProps) => {
     return <motion.div
         className={styles.motionDrawer}
-        key="modal"
         transition={spring}
         variants={variantsItem}
         initial="initial"
