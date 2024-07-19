@@ -57,7 +57,7 @@
     "ulid": "^2.x"
   },
   "devDependencies": {
-    "@acrool/react-hooks": "^0.0.5-alpha.0",
+    "@acrool/react-hooks": "^0.0.5-alpha.1",
     "@acrool/react-portal": "^0.0.4",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
