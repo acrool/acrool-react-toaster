@@ -29,10 +29,10 @@ class Toaster extends React.Component<IToasterProps, IState> {
         super(props);
 
         toast = this.show as IToaster;
-        toast.success = (item) => this.show({...item, status: EStatus.success});
-        toast.warning = (item) => this.show({...item, status: EStatus.warning});
-        toast.error = (item) => this.show({...item, status: EStatus.error});
-        toast.info = (item) => this.show({...item, status: EStatus.info});
+        toast.success = (message, options) => this.show({...options, message, status: EStatus.success});
+        toast.warning = (message, options) => this.show({...options, message, status: EStatus.warning});
+        toast.error = (message, options) => this.show({...options, message, status: EStatus.error});
+        toast.info = (message, options) => this.show({...options, message, status: EStatus.info});
     }
 
     /**

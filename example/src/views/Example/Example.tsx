@@ -35,7 +35,7 @@ const Example = () => {
                 },
                 {
                     id: 3,
-                    onClickRow: () => toast.success({message: 'You have been logged in successfully'}),
+                    onClickRow: () => toast.success('You have been logged in successfully'),
                     field: {
                         name: 'Success',
                         use: 'toast.success({message: \'You have been logged in successfully\'})',
@@ -43,7 +43,7 @@ const Example = () => {
                 },
                 {
                     id: 4,
-                    onClickRow: () => toast.info({message: 'You have a new message'}),
+                    onClickRow: () => toast.info('You have a new message'),
                     field: {
                         name: 'Info',
                         use: 'toast.info({message: \'You have a new message\'})',
@@ -51,7 +51,7 @@ const Example = () => {
                 },
                 {
                     id: 5,
-                    onClickRow: () => toast.warning({message: 'Please check if your parameter settings are correct?'}),
+                    onClickRow: () => toast.warning('Please check if your parameter settings are correct?'),
                     field: {
                         name: 'Warning',
                         use: 'toast.warning({message: \'Please check if your parameter settings are correct?\'})',
@@ -59,7 +59,7 @@ const Example = () => {
                 },
                 {
                     id: 6,
-                    onClickRow: () => toast.error({message: 'Sorry, the account password you entered is wrong'}),
+                    onClickRow: () => toast.error('Sorry, the account password you entered is wrong'),
                     field: {
                         name: 'Error',
                         use: 'toast.error({message: \'Sorry, the account password you entered is wrong\'})',

@@ -11,8 +11,8 @@ export interface IRow extends IToasterWrapperProps{
     queueKey: string,
 }
 
-export type TShow = (newItem: Omit<IRow, 'queueKey'>) => void;
-export type TStatusShow = (newItem: Omit<IRow, 'queueKey'|'status'>) => void;
+export type TShow = (newRow: Omit<IRow, 'queueKey'>) => void;
+export type TStatusShow = (message: string, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
 interface TShowStatus {
     success: TStatusShow,
     warning: TStatusShow,
