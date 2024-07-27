@@ -27,7 +27,9 @@ const ToasterWrapper = ({
 
     useEffect(() => {
         // 如果時間到就隱藏
-        start(timeout).then(onClose);
+        if(timeout){
+            start(timeout).then(onClose);
+        }
     }, []);
 
 
