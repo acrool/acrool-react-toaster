@@ -1,4 +1,4 @@
-import {useCountDownTimer} from '@acrool/react-hooks';
+import {useCountDownTimer} from '@acrool/react-hooks/time';
 import {clsx} from 'clsx';
 import React, {useEffect} from 'react';
 
