@@ -3,7 +3,6 @@ import {AnimatePresence} from 'framer-motion';
 import React from 'react';
 import {ulid} from 'ulid';
 
-import {defaultTimeout} from './config';
 import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
