@@ -3,11 +3,11 @@ import {AnimatePresence} from 'framer-motion';
 import React from 'react';
 import {ulid} from 'ulid';
 
-import {defaultTimeout, rootId} from './config';
+import {defaultTimeout} from './config';
 import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
-import {EStatus, IRow, IToaster, IToasterProps, THide, TShow, TShowMulti} from './types';
+import {EStatus, IRow, IToaster, IToasterProps, THide, TShow} from './types';
 import {removeByIndex} from './utils';
 
 
@@ -24,6 +24,14 @@ class Toaster extends React.Component<IToasterProps, IState> {
     state: IState = {
         rows: []
     };
+
+    static defaultProps = {
+        id: 'acrool-react-toaster',
+    };
+
+    get typeProps(){
+        return this.props as IToasterProps & typeof Toaster.defaultProps;
+    }
 
     constructor(props) {
         super(props);
@@ -84,8 +92,9 @@ class Toaster extends React.Component<IToasterProps, IState> {
     render() {
         return (
             <ReactPortal
-                id={this.props.id || rootId}
+                id={this.typeProps.id}
                 className={styles.root}
+                containerId={this.typeProps.containerId}
             >
                 <AnimatePresence>
                     {this.renderItems()}
