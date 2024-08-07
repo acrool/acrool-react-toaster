@@ -27,6 +27,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
 
     static defaultProps = {
         id: 'acrool-react-toaster',
+        defaultTimeout: 3000,
     };
 
     get typeProps(){
@@ -80,7 +81,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
             return <MotionDrawer key={row.queueKey}>
                 <ToasterWrapper
                     status={row.status}
-                    timeout={row.timeout ?? this.props.defaultTimeout ?? defaultTimeout}
+                    timeout={row.timeout ?? this.typeProps.defaultTimeout}
                     onClose={() => this.hide(row.queueKey)}
                     message={row.message}
                 />
