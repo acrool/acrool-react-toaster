@@ -38,7 +38,7 @@ const Example = () => {
                     onClickRow: () => toast.success('You have been logged in successfully'),
                     field: {
                         name: 'Success',
-                        use: 'toast.success({message: \'You have been logged in successfully\'})',
+                        use: 'toast.success(\'You have been logged in successfully\')',
                     }
                 },
                 {
@@ -46,7 +46,7 @@ const Example = () => {
                     onClickRow: () => toast.info('You have a new message'),
                     field: {
                         name: 'Info',
-                        use: 'toast.info({message: \'You have a new message\'})',
+                        use: 'toast.info(\'You have a new message\')',
                     }
                 },
                 {
@@ -54,7 +54,7 @@ const Example = () => {
                     onClickRow: () => toast.warning('Please check if your parameter settings are correct?'),
                     field: {
                         name: 'Warning',
-                        use: 'toast.warning({message: \'Please check if your parameter settings are correct?\'})',
+                        use: 'toast.warning(\'Please check if your parameter settings are correct?\')',
                     }
                 },
                 {
@@ -62,7 +62,15 @@ const Example = () => {
                     onClickRow: () => toast.error('Sorry, the account password you entered is wrong'),
                     field: {
                         name: 'Error',
-                        use: 'toast.error({message: \'Sorry, the account password you entered is wrong\'})',
+                        use: 'toast.error(\'Sorry, the account password you entered is wrong\'),',
+                    }
+                },
+                {
+                    id: 7,
+                    onClickRow: () => toast.error('Sorry, the account password you entered is wrong', {timeout: 999999}),
+                    field: {
+                        name: 'Timeout',
+                        use: 'toast.error(\'Sorry, the account password you entered is wrong\', {timeout: 999999})',
                     }
                 },
 

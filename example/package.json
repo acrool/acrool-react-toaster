@@ -7,29 +7,41 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "pages:dev": "wrangler pages dev --proxy 3000 -- yarn dev",
-    "pages:deploy": "NODE_VERSION=18 yarn build && wrangler pages deploy ./dist"
+    "pages:deploy": "NODE_VERSION=18 yarn build-storybook && wrangler pages deploy ./storybook-static"
   },
   "resolutions": {
     "styled-components": "5.3.9"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@acrool/react-grid": "5.2.3",
     "@acrool/react-toaster": "link:..",
-    "@acrool/react-table": "5.1.2-alpha.1",
-    "@acrool/react-grid": "5.2.2",
+    "@acrool/react-table": "5.1.4",
     "@types/dom-to-image": "^2.6.7",
     "@types/styled-components": "^5.1.26",
-    "styled-components": "5.3.9",
-    "dom-to-image": "^2.6.0"
+    "dom-to-image": "^2.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "5.3.9"
   },
   "devDependencies": {
+    "@emotion/is-prop-valid": "^1.2.2",
+    "@storybook/addon-essentials": "^8.1.10",
+    "@storybook/addon-interactions": "^8.1.10",
+    "@storybook/addon-links": "^8.1.10",
+    "@storybook/addon-onboarding": "^8.1.10",
+    "@storybook/blocks": "^8.1.10",
+    "@storybook/react": "^8.1.10",
+    "@storybook/react-vite": "^8.1.10",
+    "@storybook/test": "^8.1.10",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.2.0",
+    "storybook": "^8.1.10",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
     "vite-plugin-svgr": "^4.2.0",
     "wrangler": "3.26.0"
   }

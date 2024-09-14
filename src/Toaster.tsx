@@ -94,7 +94,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
             <ReactPortal
                 id={this.typeProps.id}
                 className={styles.root}
-                containerId={this.typeProps.containerId}
+                containerSelector={this.typeProps.containerSelector}
             >
                 <AnimatePresence>
                     {this.renderItems()}

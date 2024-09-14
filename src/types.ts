@@ -27,7 +27,7 @@ export type THide = (key: string) => void;
 
 
 export interface IToasterProps {
-    containerId?: string
     id?: string
     defaultTimeout?: number
+    containerSelector?: () => HTMLElement | null;
 }

@@ -1,4 +1,11 @@
 .toaster-wrapper{
+
+    --default-success-color: #07bc0c;
+    --default-warning-color: #f1c40f;
+    --default-error-color: #e74c3c;
+    --default-info-color: #3498db;
+
+
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -10,7 +17,9 @@
     width: auto;
     height: 100%;
     margin: 0 auto;
-
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #333;
 }
 
 .content{
@@ -20,20 +29,24 @@
 
 .status-success{
     background: var(--success-color, var(--default-success-color));
+    border-color: var(--success-color, var(--default-success-color));
     color: #fff;
 }
 
 .status-warning{
     background: var(--warning-color, var(--default-warning-color));
+    border-color: var(--warning-color, var(--default-warning-color));
     color: #fff;
 }
 
 .status-error{
     background: var(--error-color, var(--default-error-color));
+    border-color: var(--error-color, var(--default-error-color));
     color: #fff;
 }
 .status-info{
     background: var(--info-color, var(--default-info-color));
+    border-color: var(--info-color, var(--default-info-color));
     color: #fff;
 }
 
