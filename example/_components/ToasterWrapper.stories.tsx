@@ -70,13 +70,3 @@ export const WithError: Story = {
         message: 'No permission to operate this feature',
     },
 };
-
-
-export const WithConfirm: Story = {
-    args: {
-        status: EStatus.confirm,
-        title: 'Confirm',
-        message: 'No permission to operate this feature',
-    },
-};
-

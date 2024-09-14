@@ -19,7 +19,7 @@
   resolved "https://registry.yarnpkg.com/@acrool/react-hooks/-/react-hooks-0.0.5.tgz#dcbeca6ad6cb5eb3580b0afd8315b7594b464c82"
   integrity sha512-n+HfWsYRLyOFWD9k6GOA9BPACSwT2EidlyyKdCUdkaG7rDcKAnKvNHYQNmNcbipS9TbSTnyUFj0Zh8bWUV6hsg==
 
-"@acrool/react-portal@^1.0.1":
+"@acrool/react-portal@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@acrool/react-portal/-/react-portal-1.0.2.tgz#4027259c61d50b808513630ae0bf53fbe30bf0a3"
   integrity sha512-/UviZkdnsfFoBdivsb8l1mbQzbFaudyAtNiq4lBolEDG3XvBDD39IZWch+pDkOs/Vdeebb+deVW3QlrM8r2oeQ==
