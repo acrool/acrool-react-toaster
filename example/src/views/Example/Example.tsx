@@ -1,4 +1,4 @@
-import {EStatus, toast} from '@acrool/react-toaster';
+import {EToasterStatus, toast} from '@acrool/react-toaster';
 import AcroolTable from '@acrool/react-table';
 
 
@@ -27,10 +27,10 @@ const Example = () => {
                 },
                 {
                     id: 2,
-                    onClickRow: () => toast({message: 'You have been logged out successfully!', status: EStatus.success}),
+                    onClickRow: () => toast({message: 'You have been logged out successfully!', status: EToasterStatus.success}),
                     field: {
                         name: 'Args Success',
-                        use: 'toast({message: \'You have been logged out successfully!\', status: EStatus.success})',
+                        use: 'toast({message: \'You have been logged out successfully!\', status: EToasterStatus.success})',
                     }
                 },
                 {

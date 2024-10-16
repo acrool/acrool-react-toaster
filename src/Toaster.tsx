@@ -6,7 +6,7 @@ import {ulid} from 'ulid';
 import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
-import {EStatus, IRow, IToaster, IToasterProps, THide, TShow} from './types';
+import {EToasterStatus, IRow, IToaster, IToasterProps, THide, TShow} from './types';
 import {removeByIndex} from './utils';
 
 
@@ -37,10 +37,10 @@ class Toaster extends React.Component<IToasterProps, IState> {
         super(props);
 
         toast = this.show as IToaster;
-        toast.success = (message, options) => this.show({...options, message, status: EStatus.success});
-        toast.warning = (message, options) => this.show({...options, message, status: EStatus.warning});
-        toast.error = (message, options) => this.show({...options, message, status: EStatus.error});
-        toast.info = (message, options) => this.show({...options, message, status: EStatus.info});
+        toast.success = (message, options) => this.show({...options, message, status: EToasterStatus.success});
+        toast.warning = (message, options) => this.show({...options, message, status: EToasterStatus.warning});
+        toast.error = (message, options) => this.show({...options, message, status: EToasterStatus.error});
+        toast.info = (message, options) => this.show({...options, message, status: EToasterStatus.info});
     }
 
     /**
@@ -96,7 +96,9 @@ class Toaster extends React.Component<IToasterProps, IState> {
                 className={styles.root}
                 containerSelector={this.typeProps.containerSelector}
             >
-                <AnimatePresence>
+                <AnimatePresence
+                    mode="popLayout"
+                >
                     {this.renderItems()}
                 </AnimatePresence>
             </ReactPortal>

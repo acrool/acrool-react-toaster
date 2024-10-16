@@ -1,7 +1,7 @@
-import {EStatus} from '../types';
+import {EToasterStatus} from '../types';
 
 export interface IToasterWrapperProps {
-    status?: EStatus
+    status?: EToasterStatus
     timeout?: number
     message: string
 }

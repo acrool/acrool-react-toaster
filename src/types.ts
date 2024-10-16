@@ -1,6 +1,6 @@
 import {IToasterWrapperProps} from './ToasterWrapper';
 
-export enum EStatus {
+export enum EToasterStatus {
     success = 'success',
     info = 'info',
     warning = 'warning',

@@ -1,13 +1,14 @@
+import {EToasterStatus} from '@acrool/react-toaster';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import Example from '../src/views/Example';
+import ToasterButton from './Toaster';
 
 
 const meta = {
     title: 'Examples/toast',
-    component: Example,
+    component: ToasterButton,
     parameters: {
-        layout: 'centered',
+        // layout: 'centered',
         actions: {argTypesRegex: '^on.*'},
         docs: {
             description: {
@@ -17,8 +18,10 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {},
-    args: {},
-} satisfies Meta<typeof Example>;
+    args: {
+        timeout: 0
+    },
+} satisfies Meta<typeof ToasterButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -27,7 +30,38 @@ type Story = StoryObj<typeof meta>;
 
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        message: "Good afternoon, I"
+    },
+};
+
+
+export const Info: Story = {
+    args: {
+        status: EToasterStatus.info,
+        message: 'You have a new message'
+    },
+};
+
+export const Success: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: 'You have been logged out successfully!'
+    },
+};
+
+export const Error: Story = {
+    args: {
+        status: EToasterStatus.error,
+        message: 'Sorry, the account password you entered is wrong'
+    },
+};
+
+export const Warning: Story = {
+    args: {
+        status: EToasterStatus.warning,
+        message: 'Please check if your parameter settings are correct?'
+    },
 };
 
 
