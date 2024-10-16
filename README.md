@@ -25,6 +25,8 @@
 ## Features
 
 - Supports 5 status colors: default, success, info, warning, danger
+- Support show limit
+- Support show position: top, bottom, left, center, right
 - Call via global method
 - Configurable disappearance delay seconds
 - Plug and unplug using `@acrool/react-portal` and `framer-motion`
@@ -59,7 +61,14 @@ const App = () => {
     return (
         <div>
             <BaseUsed/>
-            <ToasterPortal defaultTimeout={3000}/>
+            <ToasterPortal
+                defaultTimeout={3000}
+                limit={6}
+                position={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+            />
         </div>
     );
 };

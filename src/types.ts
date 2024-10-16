@@ -30,6 +30,7 @@ export interface IToasterProps {
     id?: string
     defaultTimeout?: number
     containerSelector?: () => HTMLElement | null;
+    limit?: number,
     position?: {
         vertical?: 'top'|'bottom'
         horizontal?: 'left'|'center'|'right',

@@ -28,6 +28,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
     static defaultProps = {
         id: 'acrool-react-toaster',
         defaultTimeout: 3000,
+        limit: 5,
         position: {
             vertical: 'top',
             horizontal: 'center',
@@ -55,6 +56,11 @@ class Toaster extends React.Component<IToasterProps, IState> {
     show: TShow = (newRow) => {
         const queueKey = ulid().toLowerCase();
         this.setState(prev => {
+            if(prev.rows.length >= this.typeProps.limit){
+                return {
+                    rows: [...removeByIndex(prev.rows, 0), {queueKey, ...newRow}]
+                };
+            }
             return {
                 rows: [...prev.rows, {queueKey, ...newRow}]
             };
