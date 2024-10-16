@@ -13,7 +13,8 @@
     "pages:deploy": "NODE_VERSION=18 yarn build-storybook && wrangler pages deploy ./storybook-static"
   },
   "resolutions": {
-    "styled-components": "5.3.9"
+    "styled-components": "5.3.9",
+    "framer-motion": "^11.11.9"
   },
   "dependencies": {
     "@acrool/react-grid": "5.2.3",
@@ -24,6 +25,7 @@
     "dom-to-image": "^2.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "framer-motion": "^11.11.9",
     "styled-components": "5.3.9"
   },
   "devDependencies": {
