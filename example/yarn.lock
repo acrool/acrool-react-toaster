@@ -19,10 +19,10 @@
   resolved "https://registry.yarnpkg.com/@acrool/react-hooks/-/react-hooks-0.0.5.tgz#dcbeca6ad6cb5eb3580b0afd8315b7594b464c82"
   integrity sha512-n+HfWsYRLyOFWD9k6GOA9BPACSwT2EidlyyKdCUdkaG7rDcKAnKvNHYQNmNcbipS9TbSTnyUFj0Zh8bWUV6hsg==
 
-"@acrool/react-portal@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@acrool/react-portal/-/react-portal-1.0.2.tgz#4027259c61d50b808513630ae0bf53fbe30bf0a3"
-  integrity sha512-/UviZkdnsfFoBdivsb8l1mbQzbFaudyAtNiq4lBolEDG3XvBDD39IZWch+pDkOs/Vdeebb+deVW3QlrM8r2oeQ==
+"@acrool/react-portal@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@acrool/react-portal/-/react-portal-1.0.3.tgz#8c717393b6b92bfa7e9a97574034b565a92fe4d0"
+  integrity sha512-y2/ooRSOza0mCnFrv69Zac/jTOJSzV5DMrdIkoi6DzeRlfHM8ryAVikhtwAoMQTfquMs7Us3NNqLrCzSncYYeQ==
   dependencies:
     clsx "^2.1.1"
 
@@ -2586,10 +2586,10 @@ forwarded@0.2.0:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.2.0.tgz#2269936428aad4c15c7ebe9779a84bf0b2a81811"
   integrity sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==
 
-framer-motion@^11.3.19:
-  version "11.5.4"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.5.4.tgz#521b551bb6003918e7b24af3141626f6f443e2b3"
-  integrity sha512-E+tb3/G6SO69POkdJT+3EpdMuhmtCh9EWuK4I1DnIC23L7tFPrl8vxP+LSovwaw6uUr73rUbpb4FgK011wbRJQ==
+framer-motion@^11.11.9:
+  version "11.11.9"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.11.9.tgz#a60ddf5abbd924812df923068628537a5c6ad8b9"
+  integrity sha512-XpdZseuCrZehdHGuW22zZt3SF5g6AHJHJi7JwQIigOznW4Jg1n0oGPMJQheMaKLC+0rp5gxUKMRYI6ytd3q4RQ==
   dependencies:
     tslib "^2.4.0"
 
