@@ -12,10 +12,6 @@
 
 .root{
     position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
 
     max-width: 100%;
     width: auto;
@@ -26,5 +22,24 @@
     display: flex;
     flex-direction: column-reverse;
     //align-items: center;
+
+    &.position-vertical-top{
+        top: 20px;
+    }
+    &.position-vertical-bottom{
+        bottom: 20px;
+        flex-direction: column;
+    }
+
+    &.position-horizontal-left{
+        left: 20px;
+    }
+    &.position-horizontal-center{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &.position-horizontal-right{
+        right: 20px;
+    }
 }
 

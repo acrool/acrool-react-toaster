@@ -1,4 +1,4 @@
-import {toast, EToasterStatus} from '@acrool/react-toaster';
+import {EToasterStatus,toast} from '@acrool/react-toaster';
 
 import Button from '../../src/components/Button';
 
@@ -19,7 +19,11 @@ const ToasterButton = ({
         toast({message, timeout, status});
     };
 
-    return <Button color="grayDanger" onClick={handleClick} className={className}>
+    return <Button
+        className={className}
+        color="grayDanger"
+        onClick={handleClick}
+    >
         Show Toaster
     </Button>;
 };

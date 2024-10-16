@@ -1,4 +1,5 @@
 import ReactPortal from '@acrool/react-portal';
+import {clsx} from 'clsx';
 import {AnimatePresence} from 'framer-motion';
 import React from 'react';
 import {ulid} from 'ulid';
@@ -27,6 +28,10 @@ class Toaster extends React.Component<IToasterProps, IState> {
     static defaultProps = {
         id: 'acrool-react-toaster',
         defaultTimeout: 3000,
+        position: {
+            vertical: 'top',
+            horizontal: 'center',
+        },
     };
 
     get typeProps(){
@@ -93,7 +98,14 @@ class Toaster extends React.Component<IToasterProps, IState> {
         return (
             <ReactPortal
                 id={this.typeProps.id}
-                className={styles.root}
+                className={clsx(
+                    styles.root,
+                    {[styles.positionHorizontalLeft]: this.typeProps.position.horizontal === 'left'},
+                    {[styles.positionHorizontalCenter]: this.typeProps.position.horizontal === 'center'},
+                    {[styles.positionHorizontalRight]: this.typeProps.position.horizontal === 'right'},
+                    {[styles.positionVerticalTop]: this.typeProps.position.vertical === 'top'},
+                    {[styles.positionVerticalBottom]: this.typeProps.position.vertical === 'bottom'},
+                )}
                 containerSelector={this.typeProps.containerSelector}
             >
                 <AnimatePresence

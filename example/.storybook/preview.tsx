@@ -5,7 +5,6 @@ import '@acrool/react-table/dist/index.css';
 import '@acrool/react-table/dist/themes/game.css';
 import {GridThemeProvider} from "@acrool/react-grid";
 import React from "react";
-import {ToasterPortal} from '@acrool/react-toaster';
 
 
 const preview: Preview = {
@@ -21,9 +20,6 @@ const preview: Preview = {
       (Story) => (
           <GridThemeProvider>
             <Story />
-
-              <ToasterPortal defaultTimeout={3000}/>
-
           </GridThemeProvider>
       ),
   ],
