@@ -4,7 +4,7 @@ import SvgError from '../assets/error.svg?react';
 import SvgInfo from '../assets/info.svg?react';
 import SvgSuccess from '../assets/success.svg?react';
 import SvgWarning from '../assets/warning.svg?react';
-import {EStatus} from '../types';
+import {EToasterStatus} from '../types';
 import styles from './toaster-wrapper.module.scss';
 
 interface IStatusConfig {
@@ -13,20 +13,20 @@ interface IStatusConfig {
 }
 
 
-export const themeMap: Record<EStatus, IStatusConfig> = {
-    [EStatus.success]: {
+export const themeMap: Record<EToasterStatus, IStatusConfig> = {
+    [EToasterStatus.success]: {
         icon: SvgSuccess,
         elClass: styles.statusSuccess,
     },
-    [EStatus.warning]: {
+    [EToasterStatus.warning]: {
         icon: SvgWarning,
         elClass: styles.statusWarning,
     },
-    [EStatus.error]: {
+    [EToasterStatus.error]: {
         icon: SvgError,
         elClass: styles.statusError,
     },
-    [EStatus.info]: {
+    [EToasterStatus.info]: {
         icon: SvgInfo,
         elClass: styles.statusInfo,
     }

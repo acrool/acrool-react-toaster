@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@acrool/react-hooks@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@acrool/react-hooks/-/react-hooks-0.0.5.tgz#dcbeca6ad6cb5eb3580b0afd8315b7594b464c82"
-  integrity sha512-n+HfWsYRLyOFWD9k6GOA9BPACSwT2EidlyyKdCUdkaG7rDcKAnKvNHYQNmNcbipS9TbSTnyUFj0Zh8bWUV6hsg==
+"@acrool/react-hooks@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@acrool/react-hooks/-/react-hooks-1.0.0.tgz#13c75158bcf6df4de5a344c5ebeb404cde8c30b8"
+  integrity sha512-8EnnUrPQHPPARxLdAaMnsQMwrRkwS22624arREm5Gt47Y6eg49rSHJdrngjNR+mo221qNOPkVUm8dcP5LbhXWQ==
 
 "@acrool/react-portal@^1.0.3":
   version "1.0.3"

@@ -1,4 +1,4 @@
-import {ToasterWrapper, EStatus} from '@acrool/react-toaster';
+import {ToasterWrapper, EToasterStatus} from '@acrool/react-toaster';
 import {Flex} from '@acrool/react-grid';
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
@@ -6,7 +6,7 @@ import {fn} from '@storybook/test';
 
 
 const meta = {
-    title: 'Components/ToasterWrapper',
+    title: 'Primary/ToasterWrapper',
     component: ToasterWrapper,
     parameters: {
         layout: 'centered',
@@ -22,7 +22,7 @@ const meta = {
     args: {
         timeout: 3000,
         onClose: fn(),
-        status: EStatus.success,
+        status: EToasterStatus.success,
         message: 'Your profile save success',
     },
 } satisfies Meta<typeof ToasterWrapper>;
@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithSuccess: Story = {
     args: {
-        status: EStatus.success,
+        status: EToasterStatus.success,
         message: 'Your profile save success',
     },
     render: function Render(args) {
@@ -50,7 +50,7 @@ export const WithSuccess: Story = {
 
 export const WithInfo: Story = {
     args: {
-        status: EStatus.info,
+        status: EToasterStatus.info,
         message: 'You have a long message',
     },
 };
@@ -58,7 +58,7 @@ export const WithInfo: Story = {
 
 export const WithWarning: Story = {
     args: {
-        status: EStatus.warning,
+        status: EToasterStatus.warning,
         message: 'Are you sure you want to submit the form?',
     },
 };
@@ -66,7 +66,7 @@ export const WithWarning: Story = {
 
 export const WithError: Story = {
     args: {
-        status: EStatus.error,
+        status: EToasterStatus.error,
         message: 'No permission to operate this feature',
     },
 };

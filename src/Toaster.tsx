@@ -1,4 +1,5 @@
 import ReactPortal from '@acrool/react-portal';
+import {clsx} from 'clsx';
 import {AnimatePresence} from 'framer-motion';
 import React from 'react';
 import {ulid} from 'ulid';
@@ -6,7 +7,7 @@ import {ulid} from 'ulid';
 import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
-import {EStatus, IRow, IToaster, IToasterProps, THide, TShow} from './types';
+import {EToasterStatus, IRow, IToaster, IToasterProps, THide, TShow} from './types';
 import {removeByIndex} from './utils';
 
 
@@ -27,6 +28,11 @@ class Toaster extends React.Component<IToasterProps, IState> {
     static defaultProps = {
         id: 'acrool-react-toaster',
         defaultTimeout: 3000,
+        limit: 5,
+        position: {
+            vertical: 'top',
+            horizontal: 'center',
+        },
     };
 
     get typeProps(){
@@ -37,10 +43,10 @@ class Toaster extends React.Component<IToasterProps, IState> {
         super(props);
 
         toast = this.show as IToaster;
-        toast.success = (message, options) => this.show({...options, message, status: EStatus.success});
-        toast.warning = (message, options) => this.show({...options, message, status: EStatus.warning});
-        toast.error = (message, options) => this.show({...options, message, status: EStatus.error});
-        toast.info = (message, options) => this.show({...options, message, status: EStatus.info});
+        toast.success = (message, options) => this.show({...options, message, status: EToasterStatus.success});
+        toast.warning = (message, options) => this.show({...options, message, status: EToasterStatus.warning});
+        toast.error = (message, options) => this.show({...options, message, status: EToasterStatus.error});
+        toast.info = (message, options) => this.show({...options, message, status: EToasterStatus.info});
     }
 
     /**
@@ -50,6 +56,11 @@ class Toaster extends React.Component<IToasterProps, IState> {
     show: TShow = (newRow) => {
         const queueKey = ulid().toLowerCase();
         this.setState(prev => {
+            if(prev.rows.length >= this.typeProps.limit){
+                return {
+                    rows: [...removeByIndex(prev.rows, 0), {queueKey, ...newRow}]
+                };
+            }
             return {
                 rows: [...prev.rows, {queueKey, ...newRow}]
             };
@@ -93,10 +104,19 @@ class Toaster extends React.Component<IToasterProps, IState> {
         return (
             <ReactPortal
                 id={this.typeProps.id}
-                className={styles.root}
+                className={clsx(
+                    styles.root,
+                    {[styles.positionHorizontalLeft]: this.typeProps.position.horizontal === 'left'},
+                    {[styles.positionHorizontalCenter]: this.typeProps.position.horizontal === 'center'},
+                    {[styles.positionHorizontalRight]: this.typeProps.position.horizontal === 'right'},
+                    {[styles.positionVerticalTop]: this.typeProps.position.vertical === 'top'},
+                    {[styles.positionVerticalBottom]: this.typeProps.position.vertical === 'bottom'},
+                )}
                 containerSelector={this.typeProps.containerSelector}
             >
-                <AnimatePresence>
+                <AnimatePresence
+                    mode="popLayout"
+                >
                     {this.renderItems()}
                 </AnimatePresence>
             </ReactPortal>

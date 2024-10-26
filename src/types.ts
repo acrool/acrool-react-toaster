@@ -1,6 +1,6 @@
 import {IToasterWrapperProps} from './ToasterWrapper';
 
-export enum EStatus {
+export enum EToasterStatus {
     success = 'success',
     info = 'info',
     warning = 'warning',
@@ -30,4 +30,9 @@ export interface IToasterProps {
     id?: string
     defaultTimeout?: number
     containerSelector?: () => HTMLElement | null;
+    limit?: number,
+    position?: {
+        vertical?: 'top'|'bottom'
+        horizontal?: 'left'|'center'|'right',
+    };
 }
