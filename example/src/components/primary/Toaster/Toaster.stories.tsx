@@ -131,4 +131,18 @@ export const WithLeftBottom: Story = {
     },
 };
 
+export const WithHiddenIcon: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: 'Please check if your parameter settings are correct?',
+        isIconVisible: false,
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal position={{vertical: 'bottom', horizontal: 'left'}}/>
+        </>;
+    },
+};
+
 

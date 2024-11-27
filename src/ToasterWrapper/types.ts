@@ -4,4 +4,5 @@ export interface IToasterWrapperProps {
     status?: EToasterStatus
     timeout?: number
     message: string
+    isIconVisible?: boolean
 }

@@ -70,3 +70,12 @@ export const WithError: Story = {
         message: 'No permission to operate this feature',
     },
 };
+
+
+export const WithHiddenIcon: Story = {
+    args: {
+        status: EToasterStatus.info,
+        message: 'No permission to operate this feature',
+        isIconVisible: false,
+    },
+};

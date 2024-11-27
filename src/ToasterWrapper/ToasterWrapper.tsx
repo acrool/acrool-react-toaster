@@ -20,6 +20,7 @@ const ToasterWrapper = ({
     status,
     message,
     timeout,
+    isIconVisible = true,
 }: IProps) => {
     const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
     
@@ -39,7 +40,7 @@ const ToasterWrapper = ({
             className={clsx(styles.toasterWrapper, statusTheme?.elClass)}
             role="alert"
         >
-            {statusTheme && (
+            {isIconVisible && statusTheme && (
                 <div className={styles.icon}>
                     <statusTheme.icon/>
                 </div>

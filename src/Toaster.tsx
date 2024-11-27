@@ -94,6 +94,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
                     timeout={row.timeout ?? this.typeProps.defaultTimeout}
                     onClose={() => this.hide(row.queueKey)}
                     message={row.message}
+                    isIconVisible={row.isIconVisible}
                 />
             </MotionDrawer>;
         });
