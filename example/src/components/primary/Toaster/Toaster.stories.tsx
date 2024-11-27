@@ -2,6 +2,7 @@ import {EToasterStatus, toast, ToasterPortal} from '@acrool/react-toaster';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import Button from '../../atoms/Button';
+import {Flex} from "@acrool/react-grid";
 
 
 const meta = {
@@ -146,3 +147,20 @@ export const WithHiddenIcon: Story = {
 };
 
 
+
+export const WithReactNode: Story = {
+    args: {
+        status: EToasterStatus.info,
+        message: <Flex className="align-items-center gap-2">
+            <div style={{backgroundColor: "gray"}}>Icon</div>
+            <div>No permission to operate this feature</div>
+        </Flex>,
+        isIconVisible: false,
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal position={{vertical: 'bottom', horizontal: 'left'}}/>
+        </>;
+    },
+};

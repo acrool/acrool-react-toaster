@@ -79,3 +79,15 @@ export const WithHiddenIcon: Story = {
         isIconVisible: false,
     },
 };
+
+
+export const WithReactNode: Story = {
+    args: {
+        status: EToasterStatus.info,
+        message: <Flex className="align-items-center gap-2">
+            <div style={{backgroundColor: "gray"}}>Icon</div>
+            <div>No permission to operate this feature</div>
+        </Flex>,
+        isIconVisible: false,
+    },
+};

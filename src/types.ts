@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 import {IToasterWrapperProps} from './ToasterWrapper';
 
 export enum EToasterStatus {
@@ -12,7 +14,7 @@ export interface IRow extends IToasterWrapperProps{
 }
 
 export type TShow = (newRow: Omit<IRow, 'queueKey'>) => void;
-export type TStatusShow = (message: string, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
+export type TStatusShow = (message: ReactNode, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
 interface TShowStatus {
     success: TStatusShow,
     warning: TStatusShow,
