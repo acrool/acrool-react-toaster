@@ -31,10 +31,11 @@ export type THide = (key: string) => void;
 export interface IToasterProps {
     id?: string
     defaultTimeout?: number
-    containerSelector?: () => HTMLElement | null;
-    limit?: number,
+    containerSelector?: () => HTMLElement | null
+    limit?: number
+    isStatusIconVisible?: boolean
     position?: {
         vertical?: 'top'|'bottom'
-        horizontal?: 'left'|'center'|'right',
+        horizontal?: 'left'|'center'|'right'
     };
 }

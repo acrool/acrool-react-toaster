@@ -66,6 +66,21 @@ export const WithWarning: Story = {
 
 
 
+export const WithHiddenStatusIcon: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: 'Please check if your parameter settings are correct?'
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal isStatusIconVisible={false}/>
+        </>;
+    },
+};
+
+
+
 export const WithLimit3: Story = {
     args: {
         status: EToasterStatus.success,
@@ -136,7 +151,7 @@ export const WithHiddenIcon: Story = {
     args: {
         status: EToasterStatus.success,
         message: 'Please check if your parameter settings are correct?',
-        isIconVisible: false,
+        isStatusIconVisible: false,
     },
     render: function Render(args) {
         return <>
@@ -155,7 +170,7 @@ export const WithReactNode: Story = {
             <div style={{backgroundColor: "gray"}}>Icon</div>
             <div>No permission to operate this feature</div>
         </Flex>,
-        isIconVisible: false,
+        isStatusIconVisible: false,
     },
     render: function Render(args) {
         return <>

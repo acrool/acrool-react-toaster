@@ -6,5 +6,5 @@ export interface IToasterWrapperProps {
     status?: EToasterStatus
     timeout?: number
     message: ReactNode
-    isIconVisible?: boolean
+    isStatusIconVisible?: boolean
 }

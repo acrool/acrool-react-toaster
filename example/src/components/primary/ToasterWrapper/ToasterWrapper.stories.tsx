@@ -76,7 +76,7 @@ export const WithHiddenIcon: Story = {
     args: {
         status: EToasterStatus.info,
         message: 'No permission to operate this feature',
-        isIconVisible: false,
+        isStatusIconVisible: false,
     },
 };
 
@@ -88,6 +88,6 @@ export const WithReactNode: Story = {
             <div style={{backgroundColor: "gray"}}>Icon</div>
             <div>No permission to operate this feature</div>
         </Flex>,
-        isIconVisible: false,
+        isStatusIconVisible: false,
     },
 };
