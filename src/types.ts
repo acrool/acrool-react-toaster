@@ -1,5 +1,6 @@
 import {ReactNode} from 'react';
 
+import {TThemeMap} from './config';
 import {IToasterWrapperProps} from './ToasterWrapper';
 
 export enum EToasterStatus {
@@ -34,6 +35,7 @@ export interface IToasterProps {
     containerSelector?: () => HTMLElement | null
     limit?: number
     isStatusIconVisible?: boolean
+    themeMap?: TThemeMap,
     position?: {
         vertical?: 'top'|'bottom'
         horizontal?: 'left'|'center'|'right'

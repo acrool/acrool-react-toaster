@@ -1,29 +1,30 @@
 import {useCountDownTimer} from '@acrool/react-hooks/time';
 import {clsx} from 'clsx';
-import React, {useEffect} from 'react';
+import React, {FunctionComponent, useEffect} from 'react';
 
-import {themeMap} from './config';
 import styles from './toaster-wrapper.module.scss';
 import {IToasterWrapperProps} from './types';
 
 
 
-interface IProps extends IToasterWrapperProps{
-    onClose?: () => void,
+interface IProps extends Exclude<IToasterWrapperProps, 'status'>{
+    className?: string
+    icon?: FunctionComponent,
+    onClose?: () => void
 }
 
 /**
  * Message
  */
 const ToasterWrapper = ({
+    className,
     onClose,
-    status,
     message,
     timeout,
+    icon,
     isStatusIconVisible = true,
 }: IProps) => {
-    const statusTheme = typeof status !== 'undefined'? themeMap[status]: undefined;
-    
+
     const {start} = useCountDownTimer();
 
     useEffect(() => {
@@ -33,16 +34,17 @@ const ToasterWrapper = ({
         }
     }, []);
 
+    const IconSvg = icon as FunctionComponent;
 
     return (
         <div
             onClick={onClose}
-            className={clsx(styles.toasterWrapper, statusTheme?.elClass)}
+            className={clsx(styles.toasterWrapper, className)}
             role="alert"
         >
-            {isStatusIconVisible && statusTheme && (
+            {isStatusIconVisible && icon && (
                 <div className={styles.icon}>
-                    <statusTheme.icon/>
+                    <IconSvg/>
                 </div>
             )}
             {message && <div className={styles.content}>{message}</div>}

@@ -4,6 +4,7 @@ import {AnimatePresence} from 'framer-motion';
 import React from 'react';
 import {ulid} from 'ulid';
 
+import {themeMap} from './config';
 import MotionDrawer from './MotionDrawer';
 import styles from './toaster.module.scss';
 import ToasterWrapper from './ToasterWrapper';
@@ -33,6 +34,7 @@ class Toaster extends React.Component<IToasterProps, IState> {
             vertical: 'top',
             horizontal: 'center',
         },
+        themeMap: {...themeMap},
     };
 
     get typeProps(){
@@ -88,9 +90,12 @@ class Toaster extends React.Component<IToasterProps, IState> {
     renderItems = () => {
         const {rows} = this.state;
         return rows.map(row => {
+            const statusTheme = typeof row.status !== 'undefined'? this.props.themeMap?.[row.status]: undefined;
+
             return <MotionDrawer key={row.queueKey}>
                 <ToasterWrapper
-                    status={row.status}
+                    className={statusTheme?.className}
+                    icon={statusTheme?.icon}
                     timeout={row.timeout ?? this.typeProps.defaultTimeout}
                     onClose={() => this.hide(row.queueKey)}
                     message={row.message}

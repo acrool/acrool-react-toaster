@@ -1,4 +1,4 @@
-import {ToasterWrapper, EToasterStatus} from '@acrool/react-toaster';
+import {ToasterWrapper, EToasterStatus, themeMap} from '@acrool/react-toaster';
 import {Flex} from '@acrool/react-grid';
 import type {Meta, StoryObj} from '@storybook/react';
 import {fn} from '@storybook/test';
@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithSuccess: Story = {
     args: {
-        status: EToasterStatus.success,
+        ...themeMap.success,
         message: 'Your profile save success',
     },
     render: function Render(args) {
@@ -50,7 +50,7 @@ export const WithSuccess: Story = {
 
 export const WithInfo: Story = {
     args: {
-        status: EToasterStatus.info,
+        ...themeMap.info,
         message: 'You have a long message',
     },
 };
@@ -58,7 +58,7 @@ export const WithInfo: Story = {
 
 export const WithWarning: Story = {
     args: {
-        status: EToasterStatus.warning,
+        ...themeMap.warning,
         message: 'Are you sure you want to submit the form?',
     },
 };
@@ -66,7 +66,7 @@ export const WithWarning: Story = {
 
 export const WithError: Story = {
     args: {
-        status: EToasterStatus.error,
+        ...themeMap.error,
         message: 'No permission to operate this feature',
     },
 };
@@ -74,7 +74,7 @@ export const WithError: Story = {
 
 export const WithHiddenIcon: Story = {
     args: {
-        status: EToasterStatus.info,
+        className: themeMap.info.className,
         message: 'No permission to operate this feature',
         isStatusIconVisible: false,
     },
@@ -83,7 +83,7 @@ export const WithHiddenIcon: Story = {
 
 export const WithReactNode: Story = {
     args: {
-        status: EToasterStatus.info,
+        ...themeMap.info,
         message: <Flex className="align-items-center gap-2">
             <div style={{backgroundColor: "gray"}}>Icon</div>
             <div>No permission to operate this feature</div>

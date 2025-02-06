@@ -55,7 +55,9 @@ import "@acrool/react-toaster/dist/index.css";
 add in your App.tsx
 
 ```tsx
-import {ToasterPortal} from "@acrool/react-toaster";
+import {ToasterPortal, themeMap} from "@acrool/react-toaster";
+import CustomCheckIcon from '../../../assets/custom_check.svg?react';
+
 
 const App = () => {
     return (
@@ -67,6 +69,13 @@ const App = () => {
                 position={{
                     vertical: 'top',
                     horizontal: 'center',
+                }}
+                themeMap={{
+                    ...themeMap,
+                    success: {
+                        ...themeMap.success,
+                        icon: CustomCheckIcon,
+                    }
                 }}
             />
         </div>
