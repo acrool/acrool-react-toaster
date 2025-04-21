@@ -35,7 +35,7 @@
 ## Install
 
 ```bash
-yarn add framer-motion @acrool/react-toaster
+yarn add @acrool/react-toaster
 ```
 
 in your packages. (Make the version of styled-component you use match the version of styled-component used in acrool-react-gird)
