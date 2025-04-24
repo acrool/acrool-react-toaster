@@ -33,7 +33,6 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "dom-to-image": "^2.6.0",
-    "framer-motion": "link:../node_modules/framer-motion",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "sass": "^1.77.1",
