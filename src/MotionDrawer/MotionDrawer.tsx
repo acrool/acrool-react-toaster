@@ -29,7 +29,7 @@ const MotionDrawer = ({
 }: IProps) => {
     return <motion.div
         layout
-        className={styles.motionDrawer}
+        // className={styles.motionDrawer}
         // variants={variantsItem}
         initial={{height: 0, scale: 0.8, opacity: 0, marginTop: '0'}}
         animate={{height: 'auto',scale: 1, opacity: 1, marginTop: '10px'}}

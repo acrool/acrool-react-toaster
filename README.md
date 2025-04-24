@@ -20,6 +20,7 @@
 </div>
 
 
+`^3.2.0 support react >=18.0.0 <20.0.0`
 
 
 ## Features
@@ -34,16 +35,9 @@
 ## Install
 
 ```bash
-yarn add framer-motion @acrool/react-toaster
+yarn add @acrool/react-toaster
 ```
 
-in your packages. (Make the version of styled-component you use match the version of styled-component used in acrool-react-gird)
-
-```json
-"resolutions": {
-    "framer-motion": "^11.x"
-}
-```
 
 ## Usage
 
@@ -55,7 +49,9 @@ import "@acrool/react-toaster/dist/index.css";
 add in your App.tsx
 
 ```tsx
-import {ToasterPortal} from "@acrool/react-toaster";
+import {ToasterPortal, themeMap} from "@acrool/react-toaster";
+import CustomCheckIcon from '../../../assets/custom_check.svg?react';
+
 
 const App = () => {
     return (
@@ -67,6 +63,13 @@ const App = () => {
                 position={{
                     vertical: 'top',
                     horizontal: 'center',
+                }}
+                themeMap={{
+                    ...themeMap,
+                    success: {
+                        ...themeMap.success,
+                        icon: CustomCheckIcon,
+                    }
                 }}
             />
         </div>

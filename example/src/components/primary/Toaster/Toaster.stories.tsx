@@ -1,7 +1,9 @@
-import {EToasterStatus, toast, ToasterPortal} from '@acrool/react-toaster';
+import {Flex} from '@acrool/react-grid';
+import {EToasterStatus, toast, ToasterPortal, themeMap} from '@acrool/react-toaster';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import Button from '../../atoms/Button';
+import CustomCheckIcon from '../../../assets/custom_check.svg?react';
 
 
 const meta = {
@@ -60,6 +62,21 @@ export const WithWarning: Story = {
     args: {
         status: EToasterStatus.warning,
         message: 'Please check if your parameter settings are correct?'
+    },
+};
+
+
+
+export const WithHiddenStatusIcon: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: 'Please check if your parameter settings are correct?'
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal isStatusIconVisible={false}/>
+        </>;
     },
 };
 
@@ -131,4 +148,60 @@ export const WithLeftBottom: Story = {
     },
 };
 
+export const WithHiddenIcon: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: 'Please check if your parameter settings are correct?',
+        isStatusIconVisible: false,
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal position={{vertical: 'bottom', horizontal: 'left'}}/>
+        </>;
+    },
+};
 
+
+
+export const WithReactNode: Story = {
+    args: {
+        status: EToasterStatus.info,
+        message: <Flex className="align-items-center gap-2">
+            <div style={{backgroundColor: 'gray'}}>Icon</div>
+            <div>No permission to operate this feature</div>
+        </Flex>,
+        isStatusIconVisible: false,
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal position={{vertical: 'bottom', horizontal: 'left'}}/>
+        </>;
+    },
+};
+
+
+export const WithCustomIcon: Story = {
+    args: {
+        status: EToasterStatus.success,
+        message: <Flex className="align-items-center gap-2">
+            <div>No permission to operate this feature</div>
+        </Flex>,
+    },
+    render: function Render(args) {
+        return <>
+            <Button color="primary" onClick={() => toast(args)}>Show</Button>
+            <ToasterPortal
+                position={{vertical: 'top', horizontal: 'center'}}
+                themeMap={{
+                    ...themeMap,
+                    success: {
+                        ...themeMap.success,
+                        icon: CustomCheckIcon,
+                    }
+                }}
+            />
+        </>;
+    },
+};

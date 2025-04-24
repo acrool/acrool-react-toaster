@@ -1,3 +1,6 @@
+import {ReactNode} from 'react';
+
+import {TThemeMap} from './config';
 import {IToasterWrapperProps} from './ToasterWrapper';
 
 export enum EToasterStatus {
@@ -12,7 +15,7 @@ export interface IRow extends IToasterWrapperProps{
 }
 
 export type TShow = (newRow: Omit<IRow, 'queueKey'>) => void;
-export type TStatusShow = (message: string, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
+export type TStatusShow = (message: ReactNode, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
 interface TShowStatus {
     success: TStatusShow,
     warning: TStatusShow,
@@ -29,10 +32,12 @@ export type THide = (key: string) => void;
 export interface IToasterProps {
     id?: string
     defaultTimeout?: number
-    containerSelector?: () => HTMLElement | null;
-    limit?: number,
+    containerSelector?: () => HTMLElement | null
+    limit?: number
+    isStatusIconVisible?: boolean
+    themeMap?: TThemeMap,
     position?: {
         vertical?: 'top'|'bottom'
-        horizontal?: 'left'|'center'|'right',
+        horizontal?: 'left'|'center'|'right'
     };
 }
