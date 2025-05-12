@@ -1,8 +1,8 @@
-module.exports = {
+export default {
     coverageDirectory: 'coverage',
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
-    testMatch: ['<rootDir>/**/*.test.ts?(x)'],
+    testMatch: ['<rootDir>/**/*.spec.ts?(x)'],
     transform: {
         '^.+\\.(t|j)sx?$': [
             '@swc/jest',
@@ -19,7 +19,8 @@ module.exports = {
     },
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
-        "\\.(css)$": "identity-obj-proxy",
+        '\\.(css|scss)$': 'identity-obj-proxy',
     },
+    setupFilesAfterEnv: ['@testing-library/jest-dom'],
 };
 

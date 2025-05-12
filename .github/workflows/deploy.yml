@@ -29,7 +29,7 @@ jobs:
 
       - name: Replace local links with actual versions
         run: |
-          sed -i 's#"@acrool/react-toaster": "link:.."#"@acrool/react-toaster": "latest"#' package.json
+          sed -i 's#"@acrool/react-iconsvg": "link:.."#"@acrool/react-iconsvg": "latest"#' package.json
           sed -i 's#"react": "link:../node_modules/react"#"react": "^19.1.0"#' package.json
           sed -i 's#"react-dom": "link:../node_modules/react-dom"#"react-dom": "^19.1.0"#' package.json
 

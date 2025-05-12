@@ -8,8 +8,8 @@ import styles from './ToasterWrapper/toaster-wrapper.module.scss';
 import {EToasterStatus} from './types';
 
 export interface IStatusConfig {
-    icon: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string; }>,
-    className: string,
+    icon: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>
+    className: string
 }
 
 export type TThemeMap = Record<EToasterStatus, IStatusConfig>;

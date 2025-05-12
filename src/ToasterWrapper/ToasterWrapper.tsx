@@ -9,7 +9,7 @@ import {IToasterWrapperProps} from './types';
 
 interface IProps extends Exclude<IToasterWrapperProps, 'status'>{
     className?: string
-    icon?: FunctionComponent,
+    icon?: FunctionComponent
     onClose?: () => void
 }
 

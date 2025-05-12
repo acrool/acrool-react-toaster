@@ -11,16 +11,16 @@ export enum EToasterStatus {
 }
 
 export interface IRow extends IToasterWrapperProps{
-    queueKey: string,
+    queueKey: string
 }
 
 export type TShow = (newRow: Omit<IRow, 'queueKey'>) => void;
 export type TStatusShow = (message: ReactNode, options?: Omit<IRow, 'message'|'queueKey'|'status'>) => void;
 interface TShowStatus {
-    success: TStatusShow,
-    warning: TStatusShow,
-    info: TStatusShow,
-    error: TStatusShow,
+    success: TStatusShow
+    warning: TStatusShow
+    info: TStatusShow
+    error: TStatusShow
 }
 
 export type TShowMulti = TShow & TShowStatus;
@@ -35,9 +35,9 @@ export interface IToasterProps {
     containerSelector?: () => HTMLElement | null
     limit?: number
     isStatusIconVisible?: boolean
-    themeMap?: TThemeMap,
+    themeMap?: TThemeMap
     position?: {
-        vertical?: 'top'|'bottom'
-        horizontal?: 'left'|'center'|'right'
-    };
+        vertical?: 'top'|'bottom',
+        horizontal?: 'left'|'center'|'right',
+    }
 }
