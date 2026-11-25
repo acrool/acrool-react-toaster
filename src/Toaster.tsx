@@ -1,6 +1,6 @@
 import ReactPortal from '@acrool/react-portal';
 import {clsx} from 'clsx';
-import {AnimatePresence} from 'framer-motion';
+import {AnimatePresence} from 'motion/react';
 import React from 'react';
 import {ulid} from 'ulid';
 

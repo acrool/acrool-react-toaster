@@ -1,4 +1,4 @@
-import {motion, Variants} from 'framer-motion';
+import {motion, Variants} from 'motion/react';
 import {ReactNode} from 'react';
 
 import styles from './motion-drawer.module.scss';

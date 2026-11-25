@@ -30,7 +30,7 @@
 - Support show position: top, bottom, left, center, right
 - Call via global method
 - Configurable disappearance delay seconds
-- Plug and unplug using `@acrool/react-portal` and `framer-motion`
+- Plug and unplug using `@acrool/react-portal` and `motion`
 
 ## Install
 
