@@ -1,6 +1,6 @@
 {
   "name": "@acrool/react-toaster",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "Toaster library based for Reactjs",
   "keywords": [
     "acrool",
@@ -53,11 +53,11 @@
     "react-dom": ">=18.0.0 <20.0.0"
   },
   "dependencies": {
-    "@acrool/react-portal": "^1.1.2",
     "@acrool/react-hooks": "^1.1.2",
+    "@acrool/react-portal": "^1.1.2",
     "clsx": "^2.x",
-    "ulid": "^2.3.0",
-    "framer-motion": "^11.18.2"
+    "motion": "^14.14.0",
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-ts": "^3.0.1",

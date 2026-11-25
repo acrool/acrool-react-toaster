@@ -34,11 +34,13 @@ export default defineConfig({
         },
         cssTarget: 'chrome61',
         rollupOptions: {
-            external: ['react', 'react-dom'],
+            // motion 不打包進 dist，由使用端安裝一份，才能與使用端共用並只取用到的部分
+            external: ['react', 'react-dom', 'react/jsx-runtime', /^motion(\/|$)/],
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
+                    'react/jsx-runtime': 'ReactJsxRuntime',
                 },
             },
         },
